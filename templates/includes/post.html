@@ -1,0 +1,16 @@
+<div class="card my-2">
+    <div class="card-header">
+        {{ post.created_by.username }}
+    </div>
+    <div class="card-body">
+        <p>{{post.message}}</p>
+    </div>
+    <div class="card-footer text-muted small pl-3 px-0 py-1">
+        {% if post.updated_at %}
+        {{post.updated_at}}
+        - edited
+        {% else %}
+        {{post.created_at}}
+        {% endif %}
+    </div>
+</div>
