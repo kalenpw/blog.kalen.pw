@@ -1,0 +1,11 @@
+{% extends 'core/base.html' %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item">Blog</li>
+{% endblock breadcrumb %}
+
+{% block content %}
+{% for post in posts %}
+    {% include 'blog/includes/post_home.html' %}
+{% endfor %}
+{% endblock content %}
