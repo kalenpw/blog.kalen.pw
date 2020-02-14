@@ -1,3 +1,25 @@
 .navbar-brand {
     font-family: 'Montserrat', sans-serif;
 }
+
+body {
+    color: #333;
+    background-image: url(../img/dot-grid.png);
+}
+
+.card {
+    background-color: #fcfcfc;
+}
+
+.featured-post .card-title-wrapper {
+    background-color: #eee;
+    border-bottom: 1px solid #bbb;
+}
+
+.font-9 {
+    font-size: .9rem;
+}
+
+.no-hover-style:hover {
+    text-decoration: none;
+}

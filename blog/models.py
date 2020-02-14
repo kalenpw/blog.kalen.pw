@@ -8,6 +8,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(null=True)
     published = models.BooleanField(null=False, default=False)
+    image = models.ImageField(upload_to='media/blog/', null=True, default=None)
 
     def __str__(self):
         return self.title + ": " + self.content[:10]

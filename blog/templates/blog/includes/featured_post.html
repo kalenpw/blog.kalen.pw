@@ -1,0 +1,31 @@
+{% load static %}
+
+<div class="card mb-4 featured-post">
+    <div class="row no-gutters">
+        <div class="col-md-4">
+            {% if post.image %}
+            <img src="{{ post.image.path }}" class="img-fluid" alt="">
+            {% else %}
+            <img src="{% static 'blog/default.jpeg' %}" class="img-fluid" alt="">
+            {% endif %}
+        </div>
+        <div class="col-md-8">
+            <div class="card-block px-3 pt-3 pb-1 card-title-wrapper">
+                <h4 class="card-title">{{ post.title }}</h4>
+            </div>
+            <div class="card-block p-3">
+                <p class="card-text">{{ post.content|truncatewords:40 }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer w-100 text-muted py-1">
+        {% for tag in post.tags.all %}
+        <a href="" class="no-hover-style">
+            <span class="badge badge-pill badge-dark">{{ tag }}</span>
+        </a>
+        {% endfor %}
+        <span class="font-9 float-right">
+            {{ post.updated_at }}
+        </span>
+    </div>
+</div>

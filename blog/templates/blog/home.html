@@ -6,6 +6,10 @@
 
 {% block content %}
 {% for post in posts %}
-    {% include 'blog/includes/post_home.html' %}
+    {% if forloop.first %}
+        {% include 'blog/includes/featured_post.html' %}
+    {% else %}
+        {% include 'blog/includes/post_home.html' %}
+    {% endif %}
 {% endfor %}
 {% endblock content %}
