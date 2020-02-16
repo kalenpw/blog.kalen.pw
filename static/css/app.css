@@ -2,18 +2,11 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-body {
-    color: #333;
-    background-image: url(../img/dot-grid.png);
-}
-
 .card {
+    border: none;
+    overflow: hidden;
+    border-radius: 5px;
     background-color: #fcfcfc;
-}
-
-.featured-post .card-title-wrapper {
-    background-color: #eee;
-    border-bottom: 1px solid #bbb;
 }
 
 .font-9 {
@@ -22,4 +15,37 @@ body {
 
 .no-hover-style:hover {
     text-decoration: none;
+}
+
+body {
+    color: #333;
+    background-image: url(../img/dot-grid-light.png);
+}
+
+/* Sticky Footer Classes */
+/* html,
+body {
+    height: 100%;
+} */
+
+/* #page-content {
+    flex: 1 0 auto;
+} */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.content-wrapper {
+    flex: 1 0 auto;
+}
+
+.footer {
+    flex-shrink: 0;
 }

@@ -1,12 +1,30 @@
-<div class="row">
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-header">
-                <h2 class='title'>{{ post.title }}</h2>
-            </div>
-            <div class="card-body">
-                {{ post.content }}
-            </div>
+{% load static %}
+
+<div class="col-md-4">
+    <div class="card">
+        {% if post.image %}
+        <img src="/{{ post.image }}" class="img-fluid" alt="">
+        {% else %}
+        <img src="{% static 'blog/default.jpeg' %}" class="img-fluid" alt="">
+        {% endif %}
+        <div class="card-header bg-dark">
+            <h4 class='title text-light p-0 m-0'>{{ post.title }}</h4>
+        </div>
+        <div class="card-body">
+            {{ post.content|truncatewords:20 }}
+            <a class="text-info font-weight-bold" href="{% url 'blog:post_detail' post.id post.slug %}">
+                continue reading
+            </a>
+        </div>
+        <div class="card-footer w-100 text-muted py-1">
+            {% for tag in post.tags.all %}
+            <a href="{% url 'blog:list_result' tag.name %}" class="no-hover-style">
+                <span class="badge badge-pill badge-dark px-2 mx-1">{{ tag.name }}</span>
+            </a>
+            {% endfor %}
+            <span class="font-9 float-right">
+                {{ post.updated_at }}
+            </span>
         </div>
     </div>
 </div>

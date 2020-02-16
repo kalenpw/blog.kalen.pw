@@ -1,0 +1,43 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item"><a href="{% url 'blog:home' %}">Blog</a></li>
+<li class="breadcrumb-item">{{ post.title }}</li>
+{% endblock breadcrumb %}
+
+{% block content %}
+
+<div class="card">
+    {% if post.image %}
+    <img src="/media/{{ post.image }}" class="img-fluid" alt="">
+    {% else %}
+    <img src="/media/{% static 'blog/default.jpeg' %}" class="img-fluid" alt="">
+    {% endif %}
+
+    <div class="card-header bg-dark">
+        <h2 class='title text-light p-0 m-0'>{{ post.title }}</h2>
+    </div>
+    <div class="card-body">
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+    </div>
+</div>
+
+<div id="comments" class="card">
+    <div class="card-header bg-dark">
+        <h4 class='title text-light p-0 m-0'>Comments</h4>
+    </div>
+    <div class="card-body">
+        {% if post.comment_set.all.count > 0 %}
+        {% for comment in post.comment_set.all %}
+        <p>{{comment.text}}</p>
+        {% endfor %}
+        {% else %}
+        <p>No comments</p>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock content %}

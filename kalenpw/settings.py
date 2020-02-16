@@ -141,5 +141,8 @@ LOGIN_URL = 'login'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+MEDIA_URL = "media/"
+MEDIA_ROOT = "/home/kalenpw/Documents/Web/Django/Kalenpw_Blog/media"
+
 # custom defined settings
 APP_NAME = 'Kalenpw Chatter'
