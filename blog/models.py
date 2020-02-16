@@ -28,7 +28,7 @@ class Post(models.Model):
 
 class Comment(models.Model):
     text = models.TextField(max_length=2000)
-    user_id = models.ForeignKey(
+    user = models.ForeignKey(
         User, related_name='blog_comments', on_delete=models.SET_NULL, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     post = models.ForeignKey(Post, on_delete=models.CASCADE, null=False)

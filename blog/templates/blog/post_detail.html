@@ -26,19 +26,6 @@
     </div>
 </div>
 
-<div id="comments" class="card">
-    <div class="card-header bg-dark">
-        <h4 class='title text-light p-0 m-0'>Comments</h4>
-    </div>
-    <div class="card-body">
-        {% if post.comment_set.all.count > 0 %}
-        {% for comment in post.comment_set.all %}
-        <p>{{comment.text}}</p>
-        {% endfor %}
-        {% else %}
-        <p>No comments</p>
-        {% endif %}
-    </div>
-</div>
+{% include 'blog/includes/comments.html' %}
 
 {% endblock content %}

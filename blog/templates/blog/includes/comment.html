@@ -1,0 +1,19 @@
+{% load static %}
+
+<div class="row mb-2">
+    <div class="col-sm-2">
+        <img src="{% static 'img/blank_user.png' %}" class="img-fluid icon" />
+        <p>
+            {{ comment.user.username }}
+            <br/>
+            <small>
+                {{ comment.created_at }}
+            </small>
+        </p>
+    </div>
+    <div class="col-sm-10">
+        {{ comment.text }}
+    </div>
+</div>
+
+<hr>
