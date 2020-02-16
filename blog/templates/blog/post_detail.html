@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block breadcrumb %}
-<li class="breadcrumb-item"><a href="{% url 'blog:home' %}">Blog</a></li>
+<li class="breadcrumb-item"><a class="text-info" href="{% url 'blog:home' %}">Blog</a></li>
 <li class="breadcrumb-item">{{ post.title }}</li>
 {% endblock breadcrumb %}
 
@@ -20,8 +20,9 @@
         <h2 class='title text-light p-0 m-0'>{{ post.title }}</h2>
     </div>
     <div class="card-body">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
+        <p class="card-text">
+            {{ post.content }}
+        </p>
     </div>
 </div>
 
