@@ -7,7 +7,7 @@ from ..models import Board, Topic
 
 class NewPostView(View):
     def render_form(self, request, board, topic, form):
-        return render(request, 'new_post.html', {
+        return render(request, 'forum/new_post.html', {
             'board': board, 'topic': topic, 'form': form
         })
 
@@ -20,7 +20,7 @@ class NewPostView(View):
             post.topic = topic
             post.created_by = request.user
             post.save()
-            return redirect('topic', board_name=board.slug(), topic_id=topic_id)
+            return redirect('forum:topic', board_name=board.slug(), topic_id=topic_id)
         else:
             return self.render_form(request, board, topic, form)
 

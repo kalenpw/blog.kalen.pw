@@ -9,7 +9,6 @@ from pprint import pprint
 @login_required
 def new_topic(request, board_name, board_id):
     board = get_object_or_404(Board, id=board_id)
-    user = User.objects.first() 
     if request.method == 'POST':
         form = NewTopicForm(request.POST)
         if form.is_valid():
@@ -22,7 +21,7 @@ def new_topic(request, board_name, board_id):
                 topic=topic,
                 created_by=request.user
             )
-            return redirect('board_topics', board_name=board.slug(), board_id=board.id)
+            return redirect('forum/board_topics', board_name=board.slug(), board_id=board.id)
     else:
         form = NewTopicForm()
-    return render(request, 'new_topic.html', {'board': board, 'form': form})
+    return render(request, 'forum/new_topic.html', {'board': board, 'form': form})

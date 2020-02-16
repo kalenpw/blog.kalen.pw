@@ -5,27 +5,30 @@
 {% endblock %}
 
 {% block content %}
-<table class="table">
-    <thead class="thead-inverse">
-        <tr>
-            <th>Board</th>
-            <th>Posts</th>
-            <th>Topics</th>
-            <th>Last Post</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for board in boards %}
-        <tr>
-            <td>
-                <a href="{% url 'board_topics' board.slug board.id%}">{{ board.name }}</a>
-                <small class="text-muted d-block">{{ board.description }}</small>
-            </td>
-            <td class="align-middle">{{board.post_count}}</td>
-            <td class="align-middle">{{board.topics.all|length}}</td>
-            <td class="align-middle">{{board.latest_post_time}}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<div class="card">
+    <table class="table">
+        <thead class="thead-inverse bg-dark text-light">
+            <tr>
+                <th>Board</th>
+                <th>Posts</th>
+                <th>Topics</th>
+                <th>Last Post</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for board in boards %}
+            <tr>
+                <td>
+                    <a href="{% url 'forum:board_topics' board.slug board.id%}">{{ board.name }}</a>
+                    <small class="text-muted d-block">{{ board.description }}</small>
+                </td>
+                <td class="align-middle">{{board.post_count}}</td>
+                <td class="align-middle">{{board.topics.all|length}}</td>
+                <td class="align-middle">{{board.latest_post_time}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
 {% endblock %}

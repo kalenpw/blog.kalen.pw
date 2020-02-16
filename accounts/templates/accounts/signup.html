@@ -1,4 +1,4 @@
-{% extends 'base_accounts.html' %}
+{% extends 'core/base_no_breadcrumb.html' %}
 {% load static %}
 
 {% block title %}
@@ -18,7 +18,7 @@ Log in to Django Boards
                 </form>
             </div>
             <div class="card-footer text-muted text-center">
-                Already have an account? <a href="{% url 'login' %}">Log in</a>
+                Already have an account? <a href="{% url 'account:login' %}">Log in</a>
             </div>
         </div>
     </div>

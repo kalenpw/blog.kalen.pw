@@ -53,3 +53,10 @@ body {
 img.icon {
     max-height: 100px;
 }
+
+a {
+    color: #17a2b8;
+}
+a:hover {
+    color: #117a8b;
+}

@@ -1,0 +1,53 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+{{ board.name }} - {{ block.super }}
+{% endblock %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item"><a href="{% url 'forum:home' %}">Boards</a></li>
+<li class="breadcrumb-item active">{{ board.name }}</li>
+
+{% endblock %}
+
+{% block content %}
+<div class='row'>
+    <div class="col">
+        <a href="{% url 'forum:new_topic' board.slug board.id %}" role='button'
+            class="btn btn-light btn-block">
+            New Topic
+        </a>
+    </div>
+</div>
+{% if board.topics.all|length > 0 %}
+
+<div class="card mt-4">
+    <table class='table'>
+        <thead class="bg-dark text-light">
+            <tr>
+                <td>Topic</td>
+                <td>Starter</td>
+                <td>Last Post</td>
+            </tr>
+        </thead>
+
+        {% for topic in board.topics.all %}
+        <tr>
+            <td><a href="{% url 'forum:topic' board.slug topic.id%}">{{topic.subject}}</a></td>
+            <td>{{topic.starter.username}}</td>
+            <td>{{topic.last_updated}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+{% else %}
+<div class="row">
+    <div class="col card">
+        <h2 class='my-2'>No topics found</h2>
+        <p>Why don't you change that?</p>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}
