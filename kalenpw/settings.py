@@ -39,11 +39,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'widget_tweaks',
+    'markdownx',
 
     'forum',
     'accounts',
     'core',
     'blog',
+]
+
+MARKDOWNX_MARKDOWN_EXTENSIONS = [
+    'markdown.extensions.codehilite',
 ]
 
 MIDDLEWARE = [
@@ -129,6 +134,7 @@ USE_TZ = True
 # this is the actual url served
 # ie localhost:8000/static/
 STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),

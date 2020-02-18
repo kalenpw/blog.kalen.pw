@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from markdownx.models import MarkdownxField
 
 
 class Tag(models.Model):
@@ -11,7 +12,7 @@ class Tag(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=255)
-    content = models.TextField()
+    content = MarkdownxField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(null=True)
     published = models.BooleanField(null=False, default=False)

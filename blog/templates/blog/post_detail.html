@@ -1,6 +1,7 @@
 {% extends 'core/base.html' %}
 
 {% load static %}
+{% load markdownify %}
 
 {% block breadcrumb %}
 <li class="breadcrumb-item"><a class="text-info" href="{% url 'blog:home' %}">Blog</a></li>
@@ -21,7 +22,7 @@
     </div>
     <div class="card-body">
         <p class="card-text">
-            {{ post.content }}
+            {{ post.content|markdown|safe }}
         </p>
     </div>
 </div>

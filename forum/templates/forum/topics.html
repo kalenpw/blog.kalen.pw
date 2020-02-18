@@ -11,23 +11,15 @@
 {% endblock %}
 
 {% block content %}
-<div class='row'>
-    <div class="col">
-        <a href="{% url 'forum:new_topic' board.slug board.id %}" role='button'
-            class="btn btn-light btn-block">
-            New Topic
-        </a>
-    </div>
-</div>
 {% if board.topics.all|length > 0 %}
 
 <div class="card mt-4">
     <table class='table'>
         <thead class="bg-dark text-light">
             <tr>
-                <td>Topic</td>
-                <td>Starter</td>
-                <td>Last Post</td>
+                <th>Topic</th>
+                <th>Starter</th>
+                <th>Last Post</th>
             </tr>
         </thead>
 
@@ -49,5 +41,13 @@
     </div>
 </div>
 {% endif %}
+
+<div class='row'>
+    <div class="col">
+        <a href="{% url 'forum:new_topic' board.slug board.id %}" role='button' class="btn btn-dark btn-block">
+            New Topic
+        </a>
+    </div>
+</div>
 
 {% endblock %}
