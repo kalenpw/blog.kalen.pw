@@ -11,7 +11,6 @@ Markdown==3.2.1
 mccabe==0.6.1
 mistune==0.8.4
 Pillow==7.0.0
-pkg-resources==0.0.0
 pycodestyle==2.5.0
 Pygments==2.5.2
 pylint==2.4.4
