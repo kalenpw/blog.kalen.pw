@@ -1,4 +1,4 @@
-{% load static %}
+{% load static markdown %}
 
 <div class="col-md-4">
     <div class="card">
@@ -11,7 +11,7 @@
             <h4 class='title text-light p-0 m-0'>{{ post.title }}</h4>
         </div>
         <div class="card-body">
-            {{ post.content|truncatewords:20 }}
+            {{ post.preview_text|truncatewords:20 }}
             <a class="font-weight-bold" href="{% url 'blog:post_detail' post.id post.slug %}">
                 continue reading
             </a>

@@ -1,4 +1,4 @@
-{% load static %}
+{% load static markdown %}
 
 <div class="card mb-4 featured-post">
     <div class="row no-gutters">
@@ -14,7 +14,7 @@
                 <h4 class="card-title text-light">{{ post.title }}</h4>
             </div>
             <div class="card-block p-3">
-                <p class="card-text">{{ post.content|truncatewords:50 }}</p>
+                <p class="card-text">{{ post.preview_text|markdown|safe|truncatewords:50 }}</p>
             </div>
             <div class="card-block p-3 mb-5">
                 <a class="btn btn-dark float-right text-light"

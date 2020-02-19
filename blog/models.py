@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from markdownx.models import MarkdownxField
+import re
 
 
 class Tag(models.Model):
@@ -19,6 +20,16 @@ class Post(models.Model):
     image = models.ImageField(upload_to='blog/',
                               null=True, blank=True, default=None)
     tags = models.ManyToManyField(Tag, blank=True)
+
+    def preview_text(self):
+        pattern = re.compile("```([A-Za-z]+)[^`]+```")
+        match = pattern.search(self.content)
+        # if we matched show code type in brackets
+        if match:
+            return re.sub(pattern, "<" + match.group(1) + ">", self.content)
+        # no match just show generic code
+        else:
+            return re.sub("```[^`]+```", "<code>", self.content)
 
     def slug(self):
         return self.title.lower().replace(" ", "-")
