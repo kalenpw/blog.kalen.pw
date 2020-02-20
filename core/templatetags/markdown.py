@@ -10,13 +10,13 @@ register = template.Library()
 class HighlightRenderer(mistune.Renderer):
     def block_code(self, code, lang):
         if not lang:
-            return '\n<div class="code-block"><pre><code>%s</code></pre></div>\n' % \
+            return '\n<div class="code-block dark"><pre><code>%s</code></pre></div>\n' % \
                    mistune.escape(code)
         lexer = get_lexer_by_name(lang, stripall=True)
         formatter = HtmlFormatter()
         code_html = highlight(code, lexer, formatter)
         return """
-            <div class="code-block">
+            <div class="code-block dark">
                 <button class='code-theme-toggle' onclick='toggleCodeTheme()'>
                     <i class="toggle-icon fas fa-sun"></i>
                 </button>

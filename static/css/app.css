@@ -1,76 +1,25 @@
 .navbar-brand {
-    font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
-
 .card {
-    border: none;
-    overflow: hidden;
-    border-radius: 5px;
-    background-color: #fcfcfc;
+  border: none;
+  overflow: hidden;
+  border-radius: 5px;
+  background-color: #fcfcfc;
 }
-
-.font-9 {
-    font-size: .9rem;
-}
-
 .no-hover-style:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
-
 body {
-    color: #333;
-    background-image: url(../img/dot-grid-light.png);
+  color: #333;
+  background-image: url(../img/dot-grid-light.png);
 }
-
-/* Sticky Footer Classes */
-html,
-body {
-    height: 100%;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-}
-
-.content-wrapper {
-    flex: 1 0 auto;
-}
-
-footer {
-    flex-shrink: 0;
-}
-
 img.icon {
-    max-height: 100px;
+  max-height: 100px;
 }
-
 a {
-    color: #17a2b8;
+  color: #17a2b8;
 }
-
 a:hover {
-    color: #117a8b;
-}
-
-.highlight {
-    margin-bottom: 10px;
-}
-
-.code-block .code-theme-toggle {
-    padding: 10px;
-    float: right;
-    position: relative;
-    right: 0;
-    top: 0;
-    border: none;
-    background: none;
-}
-
-.code-block.light .toggle-icon {
-    color: black;
-}
-
-.code-block .toggle-icon {
-    color: white;
+  color: #117a8b;
 }
