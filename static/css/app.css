@@ -37,7 +37,7 @@ body {
     flex: 1 0 auto;
 }
 
-.footer {
+footer {
     flex-shrink: 0;
 }
 
@@ -51,4 +51,26 @@ a {
 
 a:hover {
     color: #117a8b;
+}
+
+.highlight {
+    margin-bottom: 10px;
+}
+
+.code-block .code-theme-toggle {
+    padding: 10px;
+    float: right;
+    position: relative;
+    right: 0;
+    top: 0;
+    border: none;
+    background: none;
+}
+
+.code-block.light .toggle-icon {
+    color: black;
+}
+
+.code-block .toggle-icon {
+    color: white;
 }

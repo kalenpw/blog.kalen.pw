@@ -21,6 +21,7 @@ class Post(models.Model):
                               null=True, blank=True, default=None)
     tags = models.ManyToManyField(Tag, blank=True)
 
+    """Replaces mark down code blocks with <language> for brevity"""
     def preview_text(self):
         pattern = re.compile("```([A-Za-z]+)[^`]+```")
         match = pattern.search(self.content)
