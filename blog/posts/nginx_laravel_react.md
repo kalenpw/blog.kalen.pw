@@ -36,3 +36,5 @@ npm start
 ```
 Note: `npx` is installed with npm.
 
+This should have opened a browser tab to `localhost:3000` and displayed the React default screen.
+# todo image
