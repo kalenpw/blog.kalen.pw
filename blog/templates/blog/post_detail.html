@@ -3,6 +3,10 @@
 {% load static %}
 {% load markdown %}
 
+{% block title %}
+{{ post.title }}
+{% endblock title %}
+
 {% block breadcrumb %}
 <li class="breadcrumb-item"><a class="text-info" href="{% url 'blog:home' %}">Blog</a></li>
 <li class="breadcrumb-item active">{{ post.title }}</li>
@@ -12,7 +16,7 @@
 
 <div class="card">
     {% if post.image %}
-    <img src="/media/{{ post.image }}" class="img-fluid" alt="">
+    <img src="/media/{{ post.image }}" class="img-fluid cropped-article-header-image" alt="{{ post.title }}">
     {% else %}
     <img src="/media/{% static 'blog/default.jpeg' %}" class="img-fluid" alt="">
     {% endif %}

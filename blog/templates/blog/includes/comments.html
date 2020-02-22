@@ -9,7 +9,11 @@
         {% endfor %}
         {% endif %}
 
+        {% if user.is_authenticated %}
+            {% include "blog/includes/forms/new_comment.html" %}
 
-        {% include "blog/includes/forms/new_comment.html" %}
+        {% else %}
+            {% include 'blog/includes/forms/login_to_comment.html' %} 
+        {% endif %}
     </div>
 </div>

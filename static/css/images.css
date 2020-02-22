@@ -1,0 +1,5 @@
+.cropped-article-header-image {
+  object-fit: none;
+  object-position: center;
+  max-height: 500px;
+}

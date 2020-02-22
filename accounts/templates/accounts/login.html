@@ -8,7 +8,7 @@
         <div class="card">
             <div class="card-body">
                 <h3 class="card-title">Log in</h3>
-                <form method="post" novalidate>
+                <form method="post">
                     {% csrf_token %}
                     {% include 'includes/form.html' %}
                     <button type="submit" class="btn btn-info btn-block">Log in</button>

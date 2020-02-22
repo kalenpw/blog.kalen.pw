@@ -2,21 +2,19 @@
 
 <div class="card mb-4 featured-post">
     <div class="row no-gutters">
-        <div class="col-md-4">
+        <div class="col-md-5">
             {% if post.image %}
             <img src="/media/{{ post.image }}" class="img-fluid" alt="">
             {% else %}
             <img src="{% static 'blog/default.jpeg' %}" class="img-fluid" alt="">
             {% endif %}
         </div>
-        <div class="col-md-8">
+        <div class="col-md-7">
             <div class="card-block px-3 pt-3 pb-1 card-title-wrapper bg-dark">
                 <h4 class="card-title text-light">{{ post.title }}</h4>
             </div>
             <div class="card-block p-3">
                 <p class="card-text">{{ post.preview_text|markdown|safe|truncatewords:50 }}</p>
-            </div>
-            <div class="card-block p-3 mb-5">
                 <a class="btn btn-dark float-right text-light"
                     href="{% url 'blog:post_detail' post.id post.slug %}"
                 >
