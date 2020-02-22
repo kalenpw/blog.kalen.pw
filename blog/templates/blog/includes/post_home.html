@@ -12,7 +12,7 @@
         </div>
         <div class="card-body">
             {{ post.preview_text|truncatewords:20 }}
-            <a class="font-weight-bold" href="{% url 'blog:post_detail' post.id post.slug %}">
+            <a class="font-weight-bold text-info" href="{% url 'blog:post_detail' post.id post.slug %}">
                 continue reading
             </a>
         </div>

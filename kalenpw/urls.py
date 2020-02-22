@@ -22,10 +22,9 @@ from django.conf.urls.static import static
 from core import views
 
 urlpatterns = [
+    path('', include('blog.urls')),
     path('', views.index, name='index'),
-    path('forum/', include('forum.urls')),
     path('account/', include('accounts.urls')),
-    path('blog/', include('blog.urls')),
     # password reset
     path(
         'reset',

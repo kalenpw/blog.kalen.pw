@@ -7,8 +7,6 @@
         {% for comment in post.comment_set.all %}
         {% include 'blog/includes/comment.html' %}
         {% endfor %}
-        {% else %}
-        <p>No comments</p>
         {% endif %}
 
 

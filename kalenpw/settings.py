@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'markdownx',
 
-    'forum',
     'accounts',
     'core',
     'blog',
@@ -151,4 +150,4 @@ MEDIA_URL = "media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # custom defined settings
-APP_NAME = 'Kalenpw Chatter'
+APP_NAME = 'kalen.pw'

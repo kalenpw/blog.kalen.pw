@@ -7,14 +7,6 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="mainMenu">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'blog:home' %}">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'forum:home' %}">Forum</a>
-                </li>
-            </ul>
             {% if user.is_authenticated %}
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
@@ -32,8 +24,8 @@
             </ul>
             {% else %}
             <form class="form-inline ml-auto">
-                <a href="{% url 'account:login' %}" class="btn btn-outline-light">Log in</a>
-                <a href="{% url 'account:signup' %}" class="btn btn-info ml-2">Sign up</a>
+                <a href="{% url 'account:login' %}" class="btn btn-outline-light">log in</a>
+                <a href="{% url 'account:signup' %}" class="btn btn-info ml-2">sign up</a>
             </form>
             {% endif %}
         </div>
