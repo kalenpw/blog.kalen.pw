@@ -16,7 +16,7 @@
 
 <div class="card">
     {% if post.image %}
-    <img src="/media/{{ post.image }}" class="img-fluid cropped-article-header-image" alt="{{ post.title }}">
+    <img src="/media/{{ post.image }}" class="img-fluid" alt="{{ post.title }}">
     {% else %}
     <img src="/media/{% static 'blog/default.jpeg' %}" class="img-fluid" alt="">
     {% endif %}

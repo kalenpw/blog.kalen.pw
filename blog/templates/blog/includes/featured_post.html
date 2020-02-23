@@ -2,12 +2,12 @@
 
 <div class="card mb-4 featured-post">
     <div class="row no-gutters">
-        <div class="col-md-5">
-            {% if post.image %}
+        <div class="col-md-5 featured-image" style='background-image: url("/media/{{ post.image }}")'>
+            {% comment %} {% if post.image %}
             <img src="/media/{{ post.image }}" class="img-fluid" alt="">
             {% else %}
             <img src="{% static 'blog/default.jpeg' %}" class="img-fluid" alt="">
-            {% endif %}
+            {% endif %} {% endcomment %}
         </div>
         <div class="col-md-7">
             <div class="card-block px-3 pt-3 pb-1 card-title-wrapper bg-dark">
@@ -15,16 +15,17 @@
             </div>
             <div class="card-block p-3">
                 <p class="card-text">{{ post.preview_text|markdown|safe|truncatewords:50 }}</p>
-                <a class="btn btn-dark float-right text-light"
-                    href="{% url 'blog:post_detail' post.id post.slug %}"
-                >
-                    Continue reading
-                </a>
-                <a class="btn btn-light float-right mr-2"
-                    href="{% url 'blog:post_detail' post.id post.slug %}#comments"
-                >
-                    Comments <span>({{ post.comment_set.count }})</span>
-                </a>
+                <div class='pb-5'>
+                    <a class="btn btn-dark float-right text-light"
+                        href="{% url 'blog:post_detail' post.id post.slug %}">
+                        Continue reading
+                    </a>
+                    <a class="btn btn-light float-right mr-2"
+                        href="{% url 'blog:post_detail' post.id post.slug %}#comments">
+                        Comments <span>({{ post.comment_set.count }})</span>
+                    </a>
+
+                </div>
             </div>
         </div>
     </div>

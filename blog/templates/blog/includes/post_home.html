@@ -2,14 +2,14 @@
 
 <div class="col-md-4">
     <div class="card">
-        {% if post.image %}
-        <img src="/{{ post.image }}" class="img-fluid" alt="">
-        {% else %}
-        <img src="{% static 'blog/default.jpeg' %}" class="img-fluid" alt="">
-        {% endif %}
         <div class="card-header bg-dark">
             <h4 class='title text-light p-0 m-0'>{{ post.title }}</h4>
         </div>
+        {% if post.image %}
+        <img src="/media/{{ post.image }}" class="img-fluid cropped-small-post-image" alt="">
+        {% else %}
+        <img src="{% static 'blog/default.jpeg' %}" class="img-fluid" alt="">
+        {% endif %}
         <div class="card-body">
             {{ post.preview_text|truncatewords:20 }}
             <a class="font-weight-bold text-info" href="{% url 'blog:post_detail' post.id post.slug %}">
