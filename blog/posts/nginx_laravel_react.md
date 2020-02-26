@@ -1,40 +1,79 @@
-### React + Laravel + Nginx ###
+# React + Laravel + Nginx ###
 
-In this tutorial we'll create a simple password generator app with an API powered by Laravel, a frontend in React, all served via Nginx.
+This walks you through setting up Nginx to bridge separate React and Laravel applications. Working knowledge of both is assumed. If you need help learning React or Laravel plenty of good tutorials exist online.
 
-This assumes no experience in any of these technologies, but this just shows how to integrate them. You'll want to go through each ones individual tutorials. 
-
-#### React Prereqs ####
-##### Skip if you already have nodejs and npm installed ######
-The order in which you setup React or Laravel doesn't matter, but I generally prefer to do the Frontend first with dummy JSON data that I can change on the fly in case I see changes to make.
-
-Before installing React, you'll need to ensure you have the proper prerequistes installed, Node.js and npm.
-
-To check if you already have Node installed open a terminal and run 
-`nodejs --version`
-If you have it installed you'll see something like this
-`v13.6.0`
-If you had Nodejs installed you likely have npm installed and check with 
-`npm --version`
-and see
-`6.13.4`
-
-If you don't have either installed you'll need to [follow the directions to install both](https://github.com/nodesource/distributions/blob/master/README.md#debinstall) at the time of writing this you can do so with
+## Project Structure
+```bash
+ExampleApp
+│
+├── backend
+│   ├── app
+│   ├── artisan
+│   ├── bootstrap
+│   ├── composer.json
+│   ├── composer.lock
+│   ├── config
+│   ├── database
+│   ├── package.json
+│   ├── phpunit.xml
+│   ├── public
+│   │   ├── favicon.ico
+│   │   ├── index.php
+│   │   ├── robots.txt
+│   │   └── web.config
+│   ├── README.md
+│   ├── resources
+│   ├── routes
+│   ├── server.php
+│   ├── storage
+│   ├── tests
+│   ├── vendor
+│   └── webpack.mix.js
+├── frontend
+│    ├── favicon.ico
+│    ├── index.html
+│    ├── logo192.png
+│    ├── logo512.png
+│    ├── manifest.json
+│    └── robots.txt
 ```
-curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
-sudo apt-get install -y nodejs
-```
-once that is completed you will have Nodejs and npm installed. You can check by running `nodejs --version` and `npm --version`
 
-#### React ####
-We'll use [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html) to bootstrap our React project.
+Your directory structure likely looks slightly different as this hasn't been cleaned for production.
 
-```
-npx create-react-app password-generator-ui
-cd password-generator-ui
-npm start
-```
-Note: `npx` is installed with npm.
+## Nginx Config
+```nginx
+server {
+    # listen for http and https
+    listen 80;
+    listen 443 ssl;
 
-This should have opened a browser tab to `localhost:3000` and displayed the React default screen.
-# todo image
+    # for multiple web servers on same server
+    server_name www.example.com example.com;
+
+    # frontend
+    location / {
+        root /web/ExampleApp/Frontend;
+        index index.html;
+        try_files $uri /index.html;
+    }
+
+    # backend
+    # assumes you've used api routes in Laravel
+    location ^~ /api/ {
+        root /web/ExampleApp/Backend/public;
+        try_files $uri $uri/ /index.php?query_string;
+    }
+
+    # setup PHP
+    location ~ \.php$ {
+        root /web/ExampleApp/Backend/public;
+        fastcgi_pass unix:/run/php/php7.2-fpm.sock;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+
+    error_page 404 /404.html;
+}
+```
+with that setup requests that start with `/api` will be routed to your Laravel backend and other requests will be handled by the React application.

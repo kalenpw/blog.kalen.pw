@@ -23,6 +23,7 @@ class Post(models.Model):
 
     """Replaces mark down code blocks with <language> for brevity"""
     def preview_text(self):
+        pattern = re.compile("<div class=\"code-block dark\">[\s\S]*?<\/div>")
         pattern = re.compile("```([A-Za-z]+)[^`]+```")
         match = pattern.search(self.content)
         # if we matched show code type in brackets
