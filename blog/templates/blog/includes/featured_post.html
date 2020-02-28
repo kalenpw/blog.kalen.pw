@@ -2,14 +2,14 @@
 
 <div class="card mb-4 featured-post">
     <div class="row no-gutters">
-        <div class="col-md-5 featured-image" style='background-image: url("/media/{{ post.image }}")'>
+        <div class="col-lg-5 featured-image" style='background-image: url("/media/{{ post.image }}")'>
             {% comment %} {% if post.image %}
             <img src="/media/{{ post.image }}" class="img-fluid" alt="">
             {% else %}
             <img src="{% static 'blog/default.jpeg' %}" class="img-fluid" alt="">
             {% endif %} {% endcomment %}
         </div>
-        <div class="col-md-7">
+        <div class="col-lg-7">
             <div class="card-block px-3 pt-3 pb-1 card-title-wrapper bg-dark">
                 <h4 class="card-title text-light">{{ post.title }}</h4>
             </div>
