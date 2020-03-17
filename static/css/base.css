@@ -1,6 +1,11 @@
 .navbar-brand {
   font-family: 'Montserrat', sans-serif;
 }
+@media (max-width: 767px) {
+  .col-xs-12 {
+    margin-bottom: 20px;
+  }
+}
 .card {
   border: none;
   overflow: hidden;
