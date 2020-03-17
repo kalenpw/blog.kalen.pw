@@ -15,11 +15,6 @@
 {% block content %}
 
 <div class="card">
-    {% if post.image %}
-    <img src="/media/{{ post.image }}" class="img-fluid" alt="{{ post.title }}">
-    {% else %}
-    <img src="/media/{% static 'blog/default.jpeg' %}" class="img-fluid" alt="">
-    {% endif %}
 
     <div class="card-header bg-dark">
         <h2 class='title text-light p-0 m-0'>{{ post.title }}</h2>
