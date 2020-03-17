@@ -1,0 +1,9 @@
+.kpw--card-equal-height {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.kpw--card-equal-height .card-footer {
+    margin-top: auto;
+}

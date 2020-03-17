@@ -23,18 +23,20 @@ class Post(models.Model):
 
     """Replaces mark down code blocks with <language> for brevity"""
     def preview_text(self):
+        post_text = self.content
+        post_text = post_text.replace('#', '')
         pattern = re.compile("<div class=\"code-block dark\">[\s\S]*?<\/div>")
         pattern = re.compile("```([A-Za-z]+)[^`]+```")
-        match = pattern.search(self.content)
+        match = pattern.search(post_text)
         # if we matched show code type in brackets
         if match:
-            return re.sub(pattern, "<" + match.group(1) + ">", self.content)
+            return re.sub(pattern, "<" + match.group(1) + ">", post_text)
         # no match just show generic code
         else:
-            return re.sub("```[^`]+```", "<code>", self.content)
+            return re.sub("```[^`]+```", "<code>", post_text)
 
     def slug(self):
-        return self.title.lower().replace(" ", "-")
+        return self.title.lower().replace(" ", "-").replace("&", "and")
 
     def __str__(self):
         return self.title + ": " + self.content[:10]
