@@ -25,7 +25,7 @@ SECRET_KEY = '5jssy#^!xk5g+36(w8aqss1w%$w1(kj9v3@36qnn1%ujn!k4jo'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['blog.kalen.pw', 'localhost']
 
 
 # Application definition

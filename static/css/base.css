@@ -1,0 +1,19 @@
+.navbar-brand {
+  font-family: 'Montserrat', sans-serif;
+}
+.card {
+  border: none;
+  overflow: hidden;
+  border-radius: 5px;
+  background-color: #fcfcfc;
+}
+.no-hover-style:hover {
+  text-decoration: none;
+}
+body {
+  color: #333;
+  background-image: url(../img/dot-grid-light.png);
+}
+img.icon {
+  max-height: 100px;
+}
