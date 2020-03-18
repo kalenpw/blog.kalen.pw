@@ -770,3 +770,6 @@ footer {
   background-size: cover;
   min-height: 200px;
 }
+.post-date {
+  border-bottom: 1px solid #ddd;
+}
