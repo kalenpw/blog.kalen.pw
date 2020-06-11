@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item"><a class='text-info' href="{% url 'blog:home' %}">Blog</a></li>
+<li class="breadcrumb-item">Search</li>
+<li class="breadcrumb-item active">{{ search_text }}</li>
+{% endblock breadcrumb %}
+
+{% block content %}
+<h2>Search results: {{ search_text }}</h2>
+
+<div class="row">
+    {% for post in posts %}
+    {% include 'blog/includes/post_home.html' %}
+    {% endfor %}
+</div>
+
+{% endblock content %}
