@@ -10,14 +10,13 @@
 
 {% block content %}
 
-{% for post in posts %}
-    {% if forloop.first %}
-        {% include 'blog/includes/featured_post.html' %}
-        <div class="row">
-    {% else %}
-        {% include 'blog/includes/post_home.html' %}
-    {% endif %}
-{% endfor %}
+<h2>Tagged: <span class="badge badge-pill badge-dark">{{tag_name}}</span></h2>
+<hr>
+
+<div class="row">
+    {% for post in posts %}
+    {% include 'blog/includes/post_home.html' %}
+    {% endfor %}
 </div>
 
 {% endblock content %}
