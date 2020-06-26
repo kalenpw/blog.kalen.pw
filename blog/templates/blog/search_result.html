@@ -7,20 +7,28 @@
 {% endblock breadcrumb %}
 
 {% block content %}
+
 <h2>Search results: {{ search_text }}</h2>
 <hr>
 
-{% if posts %}
 <div class="row">
-    {% for post in posts %}
-    {% include 'blog/includes/post_home.html' %}
-    {% endfor %}
+    <div class="col-sm-12 col-md-9">
+        <div class="row">
+            {% if posts %}
+            {% for post in posts %}
+            {% include 'blog/includes/post_home.html' %}
+            {% endfor %}
+            {% else %}
+            <div class="col-12">
+                <h2>No posts</h2>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        {% include 'blog/includes/search_by_date.html' %}
+    </div>
 </div>
-
-{% else %}
-<h2>No posts</h2>
-
-{% endif %}
-
 
 {% endblock content %}

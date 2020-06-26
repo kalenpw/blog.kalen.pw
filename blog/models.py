@@ -22,6 +22,7 @@ class Post(models.Model):
     tags = models.ManyToManyField(Tag, blank=True)
 
     """Replaces mark down code blocks with <language> for brevity"""
+
     def preview_text(self):
         post_text = self.content
         post_text = post_text.replace('#', '')

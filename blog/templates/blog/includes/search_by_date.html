@@ -1,0 +1,18 @@
+{% load get_item %}
+
+<div class="col-xs-12 card">
+    <div class="card-header">
+        By date
+    </div>
+
+    <div class="card-body">
+        {% for year in post_meta_info %}
+            {% for month in post_meta_info|get_item:year %}
+                {{year}}-{{month}}:
+                {{post_meta_info|get_item:year|get_item:month}}
+                <br>
+            {% endfor %}
+
+        {% endfor %}
+    </div>
+</div>
