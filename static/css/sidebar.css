@@ -7,7 +7,53 @@
     text-decoration: none;
 }
 
-
 .post-search-dates .months {
     list-style-type: none;
+}
+
+.months {
+    padding-left: 50px;
+}
+
+.plus-minus-wrapper {
+    background: none;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    font-size: 1.5em;
+    position: relative;
+    vertical-align: middle;
+}
+
+.plus-minus-wrapper span {
+    position: absolute;
+    background: #222;
+    transition: .3s;
+    border-radius: 2px;
+}
+
+.plus-minus-wrapper .vertical {
+    top: 25%;
+    bottom: 25%;
+    width: 10%;
+    left: 45%;
+}
+
+.plus-minus-wrapper .horizontal {
+    left: 25%;
+    right: 25%;
+    height: 10%;
+    top: 45%;
+}
+
+.do-last-rotate {
+    display: none;
+}
+
+.rotate-vertical {
+    transform: rotate(90deg);
+}
+
+.do-transform {
+    transform: rotate(90deg);
 }

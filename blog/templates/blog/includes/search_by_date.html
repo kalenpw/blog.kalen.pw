@@ -8,7 +8,15 @@
     <div class="card-body">
         <ul class="post-search-dates">
             {% for year in post_meta_info %}
-            <li>
+            <li x-data="{open: false}">
+                <button class="plus-minus-wrapper" @click="open = !open">
+                    <span
+                        class="vertical"
+                        :class="open ? 'rotate-vertical': '' "></span>
+                    <span
+                        class="horizontal"
+                    ></span>
+                </button>
                 <a
                     href="">
                     {{year}}
@@ -19,7 +27,7 @@
                 <ul class="months">
                     {% for month in post_meta_info|get_item:year %}
                     {% if month != 'count' %}
-                    <li>
+                    <li x-show="open">
                         <a
                             href="">
                             {{month}}
