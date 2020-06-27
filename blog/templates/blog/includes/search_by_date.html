@@ -6,13 +6,33 @@
     </div>
 
     <div class="card-body">
-        {% for year in post_meta_info %}
-            {% for month in post_meta_info|get_item:year %}
-                {{year}}-{{month}}:
-                {{post_meta_info|get_item:year|get_item:month}}
-                <br>
-            {% endfor %}
-
-        {% endfor %}
+        <ul class="post-search-dates">
+            {% for year in post_meta_info %}
+            <li>
+                <a
+                    href="">
+                    {{year}}
+                    <span class="badge badge-dark">
+                        {{post_meta_info|get_item:year|get_item:'count'}}
+                    </span>
+                </a>
+                <ul class="months">
+                    {% for month in post_meta_info|get_item:year %}
+                    {% if month != 'count' %}
+                    <li>
+                        <a
+                            href="">
+                            {{month}}
+                            <span class="badge badge-dark">
+                                {{post_meta_info|get_item:year|get_item:month}}
+                            </span>
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+                {% endfor %}
+            </li>
+        </ul>
     </div>
 </div>
