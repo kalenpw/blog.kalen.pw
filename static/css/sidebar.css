@@ -46,14 +46,12 @@
     top: 45%;
 }
 
-.do-last-rotate {
-    display: none;
-}
-
 .rotate-vertical {
     transform: rotate(90deg);
 }
 
-.do-transform {
-    transform: rotate(90deg);
+.vertical-aligned-pills {
+    position: absolute;
+    /* arbitrary about the width of any given month plus a period with padding  */
+    left: 65px;
 }

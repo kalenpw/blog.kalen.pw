@@ -1,4 +1,4 @@
-/* Generated 2020-06-27 15:58:27 */
+/* Generated 2020-06-29 22:14:25 */
 
 
 
@@ -882,14 +882,95 @@ footer {
     top: 45%;
 }
 
-.do-last-rotate {
-    display: none;
-}
-
 .rotate-vertical {
     transform: rotate(90deg);
 }
 
-.do-transform {
-    transform: rotate(90deg);
+.vertical-aligned-pills {
+    position: absolute;
+    /* arbitrary about the width of any given month plus a period with padding  */
+    left: 65px;
+}
+/* Essentially a recreation of the tailwindcss classes I use */
+
+/* margin */
+.-ml-30 {
+    margin-left: -30px;
+}
+
+
+.transition {
+    transition-property: all;
+}
+
+.ease-out {
+    transition-timing-function: ease-out;
+}
+
+.ease-in {
+    transition-timing-function: ease-in;
+}
+
+.ease-in-out {
+    transition-timing-function: ease-in-out;
+}
+
+/* opacity */
+.opacity-0 {
+    opacity: 0;
+}
+
+.opacity-100 {
+    opacity: 1;
+}
+
+/* duration */
+.duration-150 {
+    transition-duration: .15s;
+}
+
+.duration-200 {
+    transition-duration: .2s;
+}
+
+.duration-300 {
+    transition-duration: .3s;
+}
+
+.duration-500 {
+    transition-duration: .5s;
+}
+
+.duration-1000 {
+    transition-duration: 1s;
+}
+
+.duration-1500 {
+    transition-duration: 1.5s;
+}
+
+.duration-3000 {
+    transition-duration: 3s;
+}
+
+
+.height-0 {
+    height: 0;
+    max-height: 0;
+}
+
+.overflow-y-hidden {
+    overflow-y: hidden;
+}
+
+.height-auto {
+    height: auto;
+}
+
+.max-height-200 {
+    max-height: 200px;
+}
+
+.height-test {
+    height: 58px;
 }

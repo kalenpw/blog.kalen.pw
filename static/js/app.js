@@ -1,4 +1,4 @@
-// Generated 2020-06-27 15:58:27
+// Generated 2020-06-29 22:14:25
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
         typeof define === 'function' && define.amd ? define(factory) :
@@ -1772,14 +1772,8 @@ function toggleCodeTheme() {
     for (let i = 0; i < codeBlocks.length; i++) {
         codeBlocks[i].classList.toggle('light');
         codeBlocks[i].classList.toggle('dark');
-
-        if (codeBlocks[i].classList.contains('light')) {
-            codeBlocks[i].querySelector('.toggle-icon').classList.remove('fa-sun');
-            codeBlocks[i].querySelector('.toggle-icon').classList.add('fa-moon');
-        } else {
-            codeBlocks[i].querySelector('.toggle-icon').classList.remove('fa-moon');
-            codeBlocks[i].querySelector('.toggle-icon').classList.add('fa-sun');
-        }
+        codeBlocks[i].querySelector('.toggle-icon').classList.toggle('fa-sun');
+        codeBlocks[i].querySelector('.toggle-icon').classList.toggle('fa-moon');
     }
 }
 window.onload = () => {

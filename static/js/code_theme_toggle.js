@@ -4,13 +4,7 @@ function toggleCodeTheme() {
     for (let i = 0; i < codeBlocks.length; i++) {
         codeBlocks[i].classList.toggle('light');
         codeBlocks[i].classList.toggle('dark');
-
-        if (codeBlocks[i].classList.contains('light')) {
-            codeBlocks[i].querySelector('.toggle-icon').classList.remove('fa-sun');
-            codeBlocks[i].querySelector('.toggle-icon').classList.add('fa-moon');
-        } else {
-            codeBlocks[i].querySelector('.toggle-icon').classList.remove('fa-moon');
-            codeBlocks[i].querySelector('.toggle-icon').classList.add('fa-sun');
-        }
+        codeBlocks[i].querySelector('.toggle-icon').classList.toggle('fa-sun');
+        codeBlocks[i].querySelector('.toggle-icon').classList.toggle('fa-moon');
     }
 }
