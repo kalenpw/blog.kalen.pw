@@ -8,17 +8,19 @@
             <li
                 x-data="{open: {% if forloop.first %}true{% else %}false{% endif %}}">
                 <div class="row">
-                    <button class="plus-minus-wrapper" @click="open = !open">
-                        <span class="vertical" :class="open ? 'rotate-vertical': '' "></span>
-                        <span class="horizontal"></span>
-                    </button>
+                    <div class="col">
+                        <button class="plus-minus-wrapper" @click="open = !open">
+                            <span class="vertical" :class="open ? 'rotate-vertical': '' "></span>
+                            <span class="horizontal"></span>
+                        </button>
 
-                    <a href="">
-                        {{year}}
-                        <span class="badge badge-dark">
-                            {{post_meta_info|get_item:year|get_item:'count'}}
-                        </span>
-                    </a>
+                        <a href="">
+                            {{year}}
+                            <span class="badge badge-dark">
+                                {{post_meta_info|get_item:year|get_item:'count'}}
+                            </span>
+                        </a>
+                    </div>
                 </div>
 
                 <ul class="months"
