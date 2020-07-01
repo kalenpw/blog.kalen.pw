@@ -1,4 +1,4 @@
-/* Generated 2020-06-29 22:14:25 */
+/* Generated 2020-07-01 00:04:21 */
 
 
 
@@ -891,6 +891,8 @@ footer {
     /* arbitrary about the width of any given month plus a period with padding  */
     left: 65px;
 }
+
+
 /* Essentially a recreation of the tailwindcss classes I use */
 
 /* margin */
@@ -973,4 +975,8 @@ footer {
 
 .height-test {
     height: 58px;
+}
+
+.raise-up-2-hover:hover {
+    transform: translateY(-2px);
 }
