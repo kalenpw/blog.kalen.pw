@@ -16,19 +16,26 @@
             <span class="icon-bar bottom-bar"></span>
         </button>
 
-        {% comment %} <button class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#mainMenu"
-            aria-controls="mainMenu"
-            aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button> {% endcomment %}
         <div class="collapse navbar-collapse"
             id="mainMenu">
             {% if user.is_authenticated %}
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto form-inline">
+                <label class="sr-only"
+                    for="search-text">Search</label>
+                <div class="input-group mr-2 mb-2 mb-sm-0">
+                    <input type="text"
+                        class="form-control"
+                        id="search-text"
+                        placeholder="search...">
+                    <div class="input-group-append">
+                        <a href="{% url 'blog:search_result' %}"
+                            type="button"
+                            id="search-button"
+                            class="btn btn-light">
+                            <i class="fas fa-search"></i>
+                        </a>
+                    </div>
+                </div>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle"
                         href="#"

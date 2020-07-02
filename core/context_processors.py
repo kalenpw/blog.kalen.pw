@@ -25,7 +25,7 @@ def get_post_meta_info(request):
     """ Returns a dict with how many posts are published in each year/month"""
     post_meta_info = defaultdict(int)
 
-    posts = Post.objects.all().order_by('-updated_at')
+    posts = Post.objects.filter(published=True).order_by('-updated_at')
 
     for post in posts:
         year = post.updated_at.year

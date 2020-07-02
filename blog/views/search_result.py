@@ -9,9 +9,10 @@ def search_result(request):
     search_text = request.GET.get('q')
     if search_text:
         posts = Post.objects.filter(
-            Q(title__contains=search_text)
-            | Q(content__contains=search_text)
-            | Q()
+            Q(published=True)
+            & (Q(title__contains=search_text)
+               | Q(content__contains=search_text)
+               | Q())
         )
     else:
         posts = []
