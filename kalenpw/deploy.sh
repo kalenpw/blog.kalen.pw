@@ -14,7 +14,7 @@ mv "$serverDir/kalenpw/settings_prod.py" "$serverDir/kalenpw/settings.py"
 
 rm -rf "$serverDir/venv"
 virtualenv venv -p python3
-source "$serverDir/venv/bin/activate"
+source /web/blog.kalen.pw/venv/bin/activate
 pip install -r requirements.txt
 pip install gunicorn
 
