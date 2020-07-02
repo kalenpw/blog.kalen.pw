@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+        <title>RSS | blog.kalen.pw</title>
+        <link>https://www.w3schools.com</link>
+        <description>Free web building tutorials</description>
+        {% for post in posts %}
+        <item>
+            <guid>https://blog.kalen.pw{% url 'blog:post_detail' post.id post.slug %}</guid>
+            <title>{{post.title}}</title>
+            <link>https://blog.kalen.pw{% url 'blog:post_detail' post.id post.slug %}</link>
+            <pubDate>{{post.updated_at|date:"D, d M Y H:i:s O"}}</pubDate>
+            <description>
+                <![CDATA[
+                    {{post.content}}
+                ]]>
+            </description>
+        </item>
+        {% endfor %}
+    </channel>
+</rss>

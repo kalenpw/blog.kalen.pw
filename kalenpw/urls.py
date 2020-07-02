@@ -19,11 +19,14 @@ from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
 
+from rss.views import generate_rss
+
 from core import views
 
 urlpatterns = [
     path('', include('blog.urls')),
     path('', views.index, name='index'),
+    path('rss/', generate_rss, name='rss'),
     path('account/', include('accounts.urls')),
     # password reset
     path(

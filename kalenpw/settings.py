@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'accounts',
     'core',
     'blog',
+    'rss',
 ]
 
 MARKDOWNX_MARKDOWN_EXTENSIONS = [
