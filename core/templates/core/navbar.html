@@ -19,7 +19,8 @@
         <div class="collapse navbar-collapse"
             id="mainMenu">
             {% if user.is_authenticated %}
-            <ul class="navbar-nav ml-auto form-inline">
+
+            <div class="navbar-nav form-inline ml-auto">
                 <label class="sr-only"
                     for="search-text">Search</label>
                 <div class="input-group mr-2 mb-2 mb-sm-0">
@@ -29,7 +30,6 @@
                         placeholder="search...">
                     <div class="input-group-append">
                         <a href="{% url 'blog:search_result' %}"
-                            type="button"
                             id="search-button"
                             class="btn btn-light">
                             <i class="fas fa-search"></i>
@@ -54,7 +54,8 @@
                             href="{% url 'account:logout' %}">Log out</a>
                     </div>
                 </li>
-            </ul>
+            </div>
+
             {% else %}
             <div class="form-inline ml-auto">
                 <label class="sr-only"
@@ -66,7 +67,6 @@
                         placeholder="search...">
                     <div class="input-group-append">
                         <a href="{% url 'blog:search_result' %}"
-                            type="button"
                             id="search-button"
                             class="btn btn-light">
                             <i class="fas fa-search"></i>

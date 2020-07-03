@@ -1,4 +1,4 @@
-/* Generated 2020-07-01 00:04:21 */
+/* Generated 2020-07-02 22:26:08 */
 
 
 
@@ -814,6 +814,7 @@ footer {
   min-height: 200px;
 }
 
+
 .non-featured-post .post-date {
     border-bottom: 1px solid #ddd;
 }
@@ -834,6 +835,10 @@ footer {
         float: right;
     }
 }
+button {
+    -webkit-appearance: none;
+}
+
 .post-search-dates {
     list-style-type: none;
     padding-left: 0;
@@ -868,18 +873,37 @@ footer {
     border-radius: 2px;
 }
 
-.plus-minus-wrapper .vertical {
-    top: 25%;
-    bottom: 25%;
-    width: 10%;
-    left: 45%;
+/* for some reason the vertial and horizontal line aren't same size on ios */
+@supports not (-webkit-touch-callout: none) {
+    .plus-minus-wrapper .vertical {
+        top: 25%;
+        bottom: 25%;
+        width: 10%;
+        left: 45%;
+    }
+
+    .plus-minus-wrapper .horizontal {
+        left: 25%;
+        right: 25%;
+        height: 10%;
+        top: 45%;
+    }
 }
 
-.plus-minus-wrapper .horizontal {
-    left: 25%;
-    right: 25%;
-    height: 10%;
-    top: 45%;
+@supports (-webkit-touch-callout: none) {
+    .plus-minus-wrapper .vertical {
+        left: 30%;
+        right: 30%;
+        height: 20%;
+        top: 45%;
+    }
+
+    .plus-minus-wrapper .horizontal {
+        left: 30%;
+        right: 30%;
+        height: 20%;
+        top: 45%;
+    }
 }
 
 .rotate-vertical {
@@ -890,9 +914,8 @@ footer {
     position: absolute;
     /* arbitrary about the width of any given month plus a period with padding  */
     left: 65px;
+    top: 4px;
 }
-
-
 /* Essentially a recreation of the tailwindcss classes I use */
 
 /* margin */
