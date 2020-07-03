@@ -1,16 +1,7 @@
-/* Generated 2020-07-03 12:57:45 */
+/* Generated 2020-07-03 14:41:52 */
 
 
 
-textarea,
-input.text,
-input[type="text"],
-input[type="button"],
-input[type="submit"],
-.input-checkbox {
-  -webkit-appearance: none;
-  border-radius: 0;
-}
 
 .navbar-brand {
   font-family: 'Montserrat', sans-serif;
@@ -885,7 +876,7 @@ button {
 }
 
 /* hack for ios for some reason the width isn't respected
-so we set them equal, start rotated and rotate in the opposite direction */
+so we start rotated */
 @supports (-webkit-touch-callout: none) {
     .plus-minus-wrapper .vertical {
         left: 30%;
@@ -954,11 +945,19 @@ so we set them equal, start rotated and rotate in the opposite direction */
 }
 /* Essentially a recreation of the tailwindcss classes I use */
 
+/* width */
+@media only screen and (max-width: 768px) {
+    .w-sm-100 {
+        width: 100% !important;
+    }
+}
+
 /* margin */
 .-ml-30 {
     margin-left: -30px;
 }
 
+/* transition */
 
 .transition {
     transition-property: all;

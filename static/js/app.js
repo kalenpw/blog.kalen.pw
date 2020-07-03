@@ -1,4 +1,4 @@
-// Generated 2020-07-03 12:57:45
+// Generated 2020-07-03 14:41:52
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
         typeof define === 'function' && define.amd ? define(factory) :

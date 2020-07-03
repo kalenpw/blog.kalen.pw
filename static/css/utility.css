@@ -1,10 +1,18 @@
 /* Essentially a recreation of the tailwindcss classes I use */
 
+/* width */
+@media only screen and (max-width: 768px) {
+    .w-sm-100 {
+        width: 100% !important;
+    }
+}
+
 /* margin */
 .-ml-30 {
     margin-left: -30px;
 }
 
+/* transition */
 
 .transition {
     transition-property: all;
