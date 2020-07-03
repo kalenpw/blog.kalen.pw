@@ -1,6 +1,16 @@
-/* Generated 2020-07-02 22:26:08 */
+/* Generated 2020-07-03 12:57:45 */
 
 
+
+textarea,
+input.text,
+input[type="text"],
+input[type="button"],
+input[type="submit"],
+.input-checkbox {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
 
 .navbar-brand {
   font-family: 'Montserrat', sans-serif;
@@ -871,6 +881,31 @@ button {
     background: #222;
     transition: .3s;
     border-radius: 2px;
+    display: block;
+}
+
+/* hack for ios for some reason the width isn't respected
+so we set them equal, start rotated and rotate in the opposite direction */
+@supports (-webkit-touch-callout: none) {
+    .plus-minus-wrapper .vertical {
+        left: 30%;
+        right: 30%;
+        height: 20%;
+        top: 45%;
+
+        transform: rotate(90deg);
+    }
+
+    .plus-minus-wrapper .horizontal {
+        left: 30%;
+        right: 30%;
+        height: 20%;
+        top: 45%;
+    }
+
+    .rotate-vertical {
+        transform: rotate(180deg) !important;
+    }
 }
 
 /* for some reason the vertial and horizontal line aren't same size on ios */
@@ -888,9 +923,13 @@ button {
         height: 10%;
         top: 45%;
     }
+
+    .rotate-vertical {
+        transform: rotate(90deg);
+    }
 }
 
-@supports (-webkit-touch-callout: none) {
+/* @supports (-webkit-touch-callout: none) {
     .plus-minus-wrapper .vertical {
         left: 30%;
         right: 30%;
@@ -904,11 +943,8 @@ button {
         height: 20%;
         top: 45%;
     }
-}
+} */
 
-.rotate-vertical {
-    transform: rotate(90deg);
-}
 
 .vertical-aligned-pills {
     position: absolute;
