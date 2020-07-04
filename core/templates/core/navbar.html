@@ -24,16 +24,26 @@
                 {% include 'core/includes/navbar/search.html' %}
 
                 {% if user.is_authenticated %}
-                <li class="nav-item dropdown mr-auto w-sm-100">
+                <li x-data="{open: false}"
+                    @click="open = !open"
+                    @clic.away="open = false"
+                    class="nav-item dropdown mr-auto w-sm-100">
                     <a class="nav-link dropdown-toggle"
                         href="#"
-                        {% comment %} id="userMenu" {% endcomment %}
-                        data-toggle="dropdown"
+                        id="userMenu"
                         aria-haspopup="true"
                         aria-expanded="false">
                         {{ user.username }}
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right"
+                    <div x-show="open"
+                        x-transition:enter="transition duration-150"
+                        x-transition:enter-start="opacity-0 sm-scale-y-0 scale-70"
+                        x-transition:enter-end=""
+                        x-transition:leave="transition duration-100"
+                        x-transition:leave-start=""
+                        x-transition:leave-end="sm-scale-y-0 opacity-0"
+
+                        class="dropdown-menu dropdown-menu-right show"
                         aria-labelledby="userMenu">
                         <a class="dropdown-item"
                             href="{% url 'account:change_password' %}">Change password</a>
