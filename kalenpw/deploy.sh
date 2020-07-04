@@ -20,4 +20,7 @@ pip install gunicorn
 
 ./manage.py collectstatic
 
+# kill old gunicorn
+ps ax|grep -m 1 gunicorn|awk {'print $1'} | xargs kill -9
+
 gunicorn --daemon --workers 3 --bind unix:/web/blog.kalen.pw/kalenpw.sock kalenpw.wsgi
