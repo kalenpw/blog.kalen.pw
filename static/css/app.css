@@ -1,4 +1,4 @@
-/* Generated 2020-07-03 14:41:52 */
+/* Generated 2020-07-03 18:13:05 */
 
 
 
@@ -815,7 +815,36 @@ footer {
   min-height: 200px;
 }
 
+@media only screen and (max-width: 768px) {
+    div.dropdown-menu {
+        transition: opacity .2s, transform .2s;
+        transform: scale(1, 0);
+        /* /* transform: scaleX(.9); */
+        opacity: 0; 
+        display: table-column;
+    }
 
+    div.dropdown-menu.show {
+        height: auto;
+        opacity: 1;
+        transform: scale(1, 1) !important;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    div.dropdown-menu {
+        transition: opacity .1s, transform .1s;
+        transform: scale(.7, .7);
+        opacity: 0;
+        display: table-column;
+    }
+
+    div.dropdown-menu.show {
+        height: auto;
+        opacity: 1;
+        transform: scale(1, 1) !important;
+    }
+}
 .non-featured-post .post-date {
     border-bottom: 1px solid #ddd;
 }
@@ -982,6 +1011,11 @@ so we start rotated */
 
 .opacity-100 {
     opacity: 1;
+}
+
+/* scale  */
+.scale-90 {
+    transform: scale(.9, .9);
 }
 
 /* duration */

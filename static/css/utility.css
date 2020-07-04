@@ -39,6 +39,11 @@
     opacity: 1;
 }
 
+/* scale  */
+.scale-90 {
+    transform: scale(.9, .9);
+}
+
 /* duration */
 .duration-150 {
     transition-duration: .15s;
