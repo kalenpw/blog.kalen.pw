@@ -4,6 +4,16 @@
   padding-bottom: 5px;
   border-radius: 10px;
 }
+.code-block {
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+.code-block .highlight pre {
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  overflow-wrap: normal;
+  white-space: pre;
+}
 .code-block .code-theme-toggle {
   padding: 10px;
   float: right;
