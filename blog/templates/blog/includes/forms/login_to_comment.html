@@ -1,16 +1,10 @@
 {% load static %}
 
 <div class="row mb-2">
-    <div class="col-sm-2">
+    <div class="col-3 col-sm-2 text-center">
         <img src="{% static 'img/blank_user.png' %}" class="img-fluid icon" />
-        <p>
-            <br />
-            <small>
-                {{ comment.created_at }}
-            </small>
-        </p>
     </div>
-    <div class="col-sm-10">
+    <div class="col-9 col-sm-10">
         <p>Log in to comment</p>
         <form class="form-inline ml-auto">
             <a href="{% url 'account:login' %}?next={{ request.path }}" class="btn btn-outline-dark">log in</a>
