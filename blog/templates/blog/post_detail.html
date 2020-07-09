@@ -3,6 +3,10 @@
 {% load static %}
 {% load markdown %}
 
+{% block open_graph %}
+{% include 'blog/includes/open_graph.html' %}
+{% endblock open_graph %}
+
 {% block title %}
 {{ post.title }}
 {% endblock title %}
