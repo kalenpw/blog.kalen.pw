@@ -1,9 +1,7 @@
 <meta property="og:title" content="{{ post.title }}">
-{% comment %} <meta property="og:description" content="{{ post.preview_text|preview|safe|truncatewords:50 }}"> {% endcomment %}
 <meta property="og:image" content="https://blog.kalen.pw/media/{{post.image}}">
-<meta property="og:url" content="{% url 'blog:post_detail' post.id post.slug %}">
+<meta property="og:url" content="https://blog.kalen.pw{% url 'blog:post_detail' post.id post.slug %}">
 
 <meta name="twitter:title" content="{{ post.title }}">
-{% comment %} <meta name="twitter:description" content="{{ post.preview_text|preview|safe|truncatewords:50 }}"> {% endcomment %}
 <meta name="twitter:image" content="https://blog.kalen.pw/media/{{post.image}}">
 <meta name="twitter:card" content="summary_large_image">
