@@ -1,7 +1,8 @@
+import re
+
 from django.db import models
 from django.contrib.auth.models import User
 from markdownx.models import MarkdownxField
-import re
 
 
 class Tag(models.Model):
@@ -20,6 +21,8 @@ class Post(models.Model):
     image = models.ImageField(upload_to='blog/',
                               null=True, blank=True, default=None)
     tags = models.ManyToManyField(Tag, blank=True)
+    previous = models.ForeignKey('self', on_delete=models.SET_NULL, related_name='next_reverse' ,null=True)
+    next = models.ForeignKey('self', on_delete=models.SET_NULL, related_name='previous_reverse', null=True)
 
     """Replaces mark down code blocks with <language> for brevity"""
 

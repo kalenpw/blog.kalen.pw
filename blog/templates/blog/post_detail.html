@@ -32,4 +32,21 @@
 
 {% include 'blog/includes/comments.html' %}
 
+<div class="row row-eq-height p-4 p-sm-0">
+    <a
+        href="{% url 'blog:post_detail' post.previous.id post.previous.slug %}"
+        class="previous-next-wrapper previous-wrapper col-6 col-sm-2 position-fixed-sm">
+        <h3>Previous</h3>
+        <p class="lead">{{post.previous.title}}</p>
+    </a>
+
+    <a
+        href="{% url 'blog:post_detail' post.next.id post.next.slug %}"
+        class="previous-next-wrapper next-wrapper col-6 col-sm-2 position-fixed-sm">
+        <h3 class="text-right">Next</h3>
+        <p class="text-right lead">{{post.next.title}}</p>
+    </a>
+
+</div>
+
 {% endblock content %}

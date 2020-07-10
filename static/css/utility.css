@@ -1,5 +1,12 @@
 /* Essentially a recreation of the tailwindcss classes I use */
 
+/* position */
+@media only screen and (min-width: 768px) {
+    .position-fixed-sm {
+        position: fixed;
+    }
+}
+
 /* width */
 @media only screen and (max-width: 768px) {
     .w-sm-100 {

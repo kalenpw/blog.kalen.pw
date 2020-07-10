@@ -1,7 +1,22 @@
-/* Generated 2020-07-07 20:12:12 */
+/* Generated 2020-07-09 23:02:05 */
 
 
 
+.container {
+  font-size: 1.2rem;
+}
+@media (max-width: 767px) {
+  .navbar {
+    border-top: 5px solid #17a2b8;
+  }
+}
+@media (min-width: 768px) {
+  .navbar {
+    border-left: 20px solid #17a2b8;
+    /* not sure why 37, but this offsets the content */
+    padding-right: 37px !important;
+  }
+}
 .navbar-brand {
   font-family: 'Montserrat', sans-serif;
 }
@@ -818,6 +833,50 @@ footer {
         transform: scale(1, 1) !important;
     }
 } */
+.previous-next-wrapper {
+  background-color: white;
+  padding: 10px;
+  transition: border 0.2s;
+  bottom: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+@media (min-width: 768px) {
+  .previous-next-wrapper {
+    height: 150px;
+  }
+}
+.previous-next-wrapper:hover {
+  text-decoration: none;
+}
+.previous-next-wrapper h3,
+.previous-next-wrapper p {
+  color: #212529;
+}
+.previous-wrapper {
+  border-left: 15px solid white;
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  border-right: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0 5px 5px 0;
+  left: 0;
+}
+.previous-wrapper:hover {
+  border-left: 15px solid #17a2b8;
+}
+.next-wrapper {
+  border-right: 15px solid white;
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  border-left: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 5px 0 0 5px;
+  right: 0;
+}
+.next-wrapper:hover {
+  border-right: 15px solid #17a2b8;
+}
+
 .post-date {
   border-bottom: 1px solid #ddd;
 }
@@ -930,6 +989,13 @@ so we start rotated */
     top: 4px;
 }
 /* Essentially a recreation of the tailwindcss classes I use */
+
+/* position */
+@media only screen and (min-width: 768px) {
+    .position-fixed-sm {
+        position: fixed;
+    }
+}
 
 /* width */
 @media only screen and (max-width: 768px) {
