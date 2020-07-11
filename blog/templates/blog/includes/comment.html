@@ -1,17 +1,23 @@
 {% load static %}
 
 <div class="row mb-2">
-    <div class="col-3 col-sm-2 text-center">
+    <div class="col-4 col-sm-2 text-center">
         <img src="{% static 'img/blank_user.png' %}" class="img-fluid icon" />
-        <p>
+        <p class="mb-0 pb-0">
             {{ comment.user.username }}
-            <br/>
-            <small>
-                {{ comment.created_at }}
-            </small>
+            <br />
+            <div class="comment-date-wrapper">
+                <small>
+                    {{ comment.created_at|date:"SHORT_DATE_FORMAT" }}
+                </small>
+                <small>
+                    {{ comment.created_at|date:"g:i a" }}
+                </small>
+
+            </div>
         </p>
     </div>
-    <div class="col-9 col-sm-10">
+    <div class="col-8 col-sm-10">
         {{ comment.text }}
     </div>
 </div>

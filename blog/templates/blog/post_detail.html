@@ -12,7 +12,7 @@
 {% endblock title %}
 
 {% block breadcrumb %}
-<li class="breadcrumb-item"><a class="text-info" href="{% url 'blog:home' %}">Blog</a></li>
+<li class="breadcrumb-item"><a class="text-info" href="{% url 'blog:home' %}">Home</a></li>
 <li class="breadcrumb-item active">{{ post.title }}</li>
 {% endblock breadcrumb %}
 
@@ -33,13 +33,16 @@
 {% include 'blog/includes/comments.html' %}
 
 <div class="row row-eq-height p-4 p-sm-0">
+    {% if post.get_previous %}
     <a
         href="{% url 'blog:post_detail' post.previous.id post.previous.slug %}"
         class="previous-next-wrapper previous-wrapper col-6 col-sm-2 position-fixed-sm">
         <h3>Previous</h3>
         <p class="lead">{{post.previous.title}}</p>
     </a>
+    {% endif %}
 
+    {% if post.get_next %}
     <a
         href="{% url 'blog:post_detail' post.next.id post.next.slug %}"
         class="previous-next-wrapper next-wrapper col-6 col-sm-2 position-fixed-sm">
@@ -47,6 +50,7 @@
         <p class="text-right lead">{{post.next.title}}</p>
     </a>
 
+    {% endif %}
 </div>
 
 {% endblock content %}

@@ -1,3 +1,20 @@
-.post-date {
+.non-featured-post .post-date {
   border-bottom: 1px solid #ddd;
+}
+@media screen and (max-width: 576px) {
+  .featured-post .post-date {
+    border-bottom: 1px solid #ddd;
+  }
+  .featured-post .post-date-wrapper {
+    text-align: center;
+  }
+}
+@media screen and (min-width: 576px) {
+  .featured-post .post-date {
+    float: right;
+  }
+}
+.comment-date-wrapper {
+  display: flex;
+  flex-direction: column;
 }

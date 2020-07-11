@@ -1,4 +1,4 @@
-/* Generated 2020-07-09 23:02:05 */
+/* Generated 2020-07-10 22:22:31 */
 
 
 
@@ -877,8 +877,25 @@ footer {
   border-right: 15px solid #17a2b8;
 }
 
-.post-date {
+.non-featured-post .post-date {
   border-bottom: 1px solid #ddd;
+}
+@media screen and (max-width: 576px) {
+  .featured-post .post-date {
+    border-bottom: 1px solid #ddd;
+  }
+  .featured-post .post-date-wrapper {
+    text-align: center;
+  }
+}
+@media screen and (min-width: 576px) {
+  .featured-post .post-date {
+    float: right;
+  }
+}
+.comment-date-wrapper {
+  display: flex;
+  flex-direction: column;
 }
 
 button {

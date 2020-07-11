@@ -21,12 +21,37 @@ class Post(models.Model):
     image = models.ImageField(upload_to='blog/',
                               null=True, blank=True, default=None)
     tags = models.ManyToManyField(Tag, blank=True)
-    previous = models.ForeignKey('self', on_delete=models.SET_NULL, related_name='next_reverse' ,null=True)
-    next = models.ForeignKey('self', on_delete=models.SET_NULL, related_name='previous_reverse', null=True)
+    previous = models.ForeignKey(
+        'self',
+        on_delete=models.SET_NULL,
+        related_name='next_reverse',
+        null=True,
+        default=None,
+        blank=True
+    )
+    next = models.ForeignKey(
+        'self',
+        on_delete=models.SET_NULL,
+        related_name='previous_reverse',
+        null=True,
+        default=None,
+        blank=True
+    )
 
-    """Replaces mark down code blocks with <language> for brevity"""
+    def get_previous(self):
+        """ Returns previous article if it is published """
+        if self.previous and self.previous.published:
+            return self.previous
+        return None
+
+    def get_next(self):
+        """ Returns next article if it is published """
+        if self.next and self.next.published:
+            return self.next
+        return None
 
     def preview_text(self):
+        """Replaces mark down code blocks with <language> for brevity"""
         post_text = self.content
         post_text = post_text.replace('#', '')
         pattern = re.compile("<div class=\"code-block dark\">[\s\S]*?<\/div>")
@@ -40,6 +65,7 @@ class Post(models.Model):
             return re.sub("```[^`]+```", "<code>", post_text)
 
     def slug(self):
+        """ Slug for URLs"""
         return self.title.lower().replace(" ", "-").replace("&", "and")
 
     def __str__(self):
