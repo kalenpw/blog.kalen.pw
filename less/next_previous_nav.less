@@ -1,48 +1,76 @@
-.previous-next-wrapper {
-    background-color: white;
-    padding: 10px;
-    transition: border .2s;
-    bottom: 20%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-
-    @media (min-width: 768px) {
-        height: 150px;
+@media (max-width: 768px) {
+    .previous-next-wrapper {
+        display: inline-block;
+        background-color: white;
+        padding: 15px;
+        border-top: 1px solid rgba(0, 0, 0, .125);
+        border-bottom: 1px solid rgba(0, 0, 0, .125);
+        border-right: 1px solid rgba(0, 0, 0, .125);
+        border-left: 1px solid rgba(0, 0, 0, .125);
     }
 
-    &:hover {
-        text-decoration: none;
+    .previous-wrapper {
+        border-radius: 5px 0 0 5px;
+
+    }
+
+    .next-wrapper {
+        border-radius: 0 5px 5px 0;
+
     }
 
     h3,
     p {
         color: #212529;
     }
+
 }
 
-.previous-wrapper {
-    border-left: 15px solid white;
-    border-top: 1px solid rgba(0, 0, 0, .125);
-    border-bottom: 1px solid rgba(0, 0, 0, .125);
-    border-right: 1px solid rgba(0, 0, 0, .125);
-    border-radius: 0 5px 5px 0;
-    left: 0;
+@media (min-width: 768px) {
+    .previous-next-wrapper {
+        padding: 10px;
+        transition: border .2s;
+        bottom: 20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 150px;
 
-    &:hover {
-        border-left: 15px solid #17a2b8;
+        h3,
+        p {
+            color: #212529;
+        }
+
+        &:hover {
+            text-decoration: none;
+        }
     }
-}
 
-.next-wrapper {
-    border-right: 15px solid white;
-    border-top: 1px solid rgba(0, 0, 0, .125);
-    border-bottom: 1px solid rgba(0, 0, 0, .125);
-    border-left: 1px solid rgba(0, 0, 0, .125);
-    border-radius: 5px 0 0 5px;
-    right: 0;
 
-    &:hover {
-        border-right: 15px solid #17a2b8;
+    .previous-wrapper {
+        border-left: 15px solid white;
+        border-top: 1px solid rgba(0, 0, 0, .125);
+        border-bottom: 1px solid rgba(0, 0, 0, .125);
+        border-right: 1px solid rgba(0, 0, 0, .125);
+        border-radius: 0 5px 5px 0;
+        left: 0;
+
+        &:hover {
+            border-left: 15px solid #17a2b8;
+        }
     }
+
+    .next-wrapper {
+        border-right: 15px solid white;
+        border-top: 1px solid rgba(0, 0, 0, .125);
+        border-bottom: 1px solid rgba(0, 0, 0, .125);
+        border-left: 1px solid rgba(0, 0, 0, .125);
+        border-radius: 5px 0 0 5px;
+        right: 0;
+
+        &:hover {
+            border-right: 15px solid #17a2b8;
+        }
+    }
+
 }

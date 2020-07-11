@@ -32,12 +32,12 @@
 
 {% include 'blog/includes/comments.html' %}
 
-<div class="row row-eq-height p-4 p-sm-0">
+<div class="row row-eq-height px-3 py-3 p-sm-0 {% if post.get_previous %}justify-content-start {% else %}justify-content-end{% endif %}">
     {% if post.get_previous %}
     <a
         href="{% url 'blog:post_detail' post.previous.id post.previous.slug %}"
-        class="previous-next-wrapper previous-wrapper col-6 col-sm-2 position-fixed-sm">
-        <h3>Previous</h3>
+        class="previous-next-wrapper previous-wrapper col-6 col-sm-2 position-fixed-sm float-left">
+        <h3><i class="fas fa-arrow-left"></i></h3>
         <p class="lead">{{post.previous.title}}</p>
     </a>
     {% endif %}
@@ -45,8 +45,8 @@
     {% if post.get_next %}
     <a
         href="{% url 'blog:post_detail' post.next.id post.next.slug %}"
-        class="previous-next-wrapper next-wrapper col-6 col-sm-2 position-fixed-sm">
-        <h3 class="text-right">Next</h3>
+        class="previous-next-wrapper next-wrapper col-6 col-sm-2 position-fixed-sm float-right">
+        <h3 class="text-right"><i class="fas fa-arrow-right"></i></h3>
         <p class="text-right lead">{{post.next.title}}</p>
     </a>
 
