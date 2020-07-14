@@ -30,13 +30,12 @@
     </div>
 </div>
 
-{% include 'blog/includes/comments.html' %}
-
-<div class="row row-eq-height px-3 py-3 p-sm-0 {% if post.get_previous %}justify-content-start {% else %}justify-content-end{% endif %}">
+<div
+    class="previous-next-wrapper mt-3 {% if not post.get_previous %}justify-content-end{% endif %}">
     {% if post.get_previous %}
     <a
         href="{% url 'blog:post_detail' post.previous.id post.previous.slug %}"
-        class="previous-next-wrapper previous-wrapper col-6 col-sm-2 position-fixed-sm float-left">
+        class="previous-wrapper col-6 col-xl-2">
         <h3><i class="fas fa-arrow-left"></i></h3>
         <p class="lead">{{post.previous.title}}</p>
     </a>
@@ -45,12 +44,14 @@
     {% if post.get_next %}
     <a
         href="{% url 'blog:post_detail' post.next.id post.next.slug %}"
-        class="previous-next-wrapper next-wrapper col-6 col-sm-2 position-fixed-sm float-right">
+        class="next-wrapper col-6 offset-xl-8 col-xl-2">
         <h3 class="text-right"><i class="fas fa-arrow-right"></i></h3>
         <p class="text-right lead">{{post.next.title}}</p>
     </a>
 
     {% endif %}
 </div>
+
+{% include 'blog/includes/comments.html' %}
 
 {% endblock content %}
