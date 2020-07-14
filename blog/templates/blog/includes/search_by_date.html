@@ -14,7 +14,7 @@
                             <span class="horizontal"></span>
                         </button>
 
-                        <a href="">
+                        <a class="text-info" href="">
                             {{year}}
                             <span class="badge badge-dark">
                                 {{post_meta_info|get_item:year|get_item:'count'}}
@@ -29,7 +29,7 @@
                     {% for month in post_meta_info|get_item:year %}
                     {% if month != 'count' %}
                     <li>
-                        <a href="">
+                        <a class="text-info" href="">
                             <div class="row">
                                 <div class="col">
                                     {{month}}
