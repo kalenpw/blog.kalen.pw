@@ -1,5 +1,5 @@
-My personal blog
+## My personal blog
 
-Can be found at <a href="blog.kalen.pw">blog.kalen.pw</a>
+Currently a work in progress, but can be found at <a href="blog.kalen.pw">blog.kalen.pw</a>
 
-Pretty simple Django + Alpine.js + Bootstrap, feel free to fork for your uses 
+Simple Django + Alpine.js + Bootstrap
