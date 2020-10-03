@@ -9,3 +9,4 @@ venv/
 *.pot
 
 kalenpw/secrets.json
+kalenpw/secrets_prod.json

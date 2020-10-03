@@ -20,6 +20,8 @@ pip install gunicorn
 
 ./manage.py collectstatic
 
+sudo mv /home/kalenpw/Secrets/blog.kalen.pw_secrets.json /web/blog.kalen.pw/kalenpw/secrets_prod.json
+
 # kill old gunicorn
 pkill -f gunicorn
 
