@@ -11,6 +11,7 @@ cd $serverDir
 
 rm "$serverDir/kalenpw/settings.py"
 mv "$serverDir/kalenpw/settings_prod.py" "$serverDir/kalenpw/settings.py"
+sudo mv /home/kalenpw/Secrets/blog.kalen.pw_secrets.json /web/blog.kalen.pw/kalenpw/secrets_prod.json
 
 rm -rf "$serverDir/venv"
 virtualenv venv -p python3
@@ -20,7 +21,6 @@ pip install gunicorn
 
 ./manage.py collectstatic
 
-sudo mv /home/kalenpw/Secrets/blog.kalen.pw_secrets.json /web/blog.kalen.pw/kalenpw/secrets_prod.json
 
 # kill old gunicorn
 pkill -f gunicorn
