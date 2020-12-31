@@ -66,7 +66,7 @@ class Post(models.Model):
 
     def slug(self):
         """ Slug for URLs"""
-        return self.title.lower().replace(" ", "-").replace("&", "and")
+        return re.sub(r'[^A-Za-z0-9 ]+', '', self.title.lower()).replace(' ', '-')
 
     def __str__(self):
         return self.title + ": " + self.content[:10]
