@@ -8,7 +8,7 @@
         {% if post.image %}
         <img src="/media/{{ post.image }}" class="img-fluid cropped-small-post-image" alt="">
         {% else %}
-        <img src="{% static 'blog/default.jpeg' %}" class="img-fluid" alt="">
+        <!-- <img src="{% static 'blog/default.jpeg' %}" class="img-fluid" alt=""> -->
         {% endif %}
         <div class="card-body">
             {{ post.preview_text|truncatewords:20 }}

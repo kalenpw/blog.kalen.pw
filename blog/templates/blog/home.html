@@ -6,10 +6,14 @@
 
 {% block content %}
 {% for post in posts %}
-    {% if forloop.first %}
+    {% if forloop.first and post.image %}
         {% include 'blog/includes/featured_post.html' %}
         <div class="row">
+
     {% else %}
+        {% if forloop.first %}
+        <div class="row">
+        {% endif %}
         {% include 'blog/includes/post_home.html' %}
     {% endif %}
 {% endfor %}
