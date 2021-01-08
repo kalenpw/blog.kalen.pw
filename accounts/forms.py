@@ -11,7 +11,7 @@ class SignUpForm(UserCreationForm):
         label="Password",
         strip=False,
         widget=forms.PasswordInput,
-        help_text="Password must be at least 12 characters."
+        help_text="Password must be at least 8 characters."
     )
 
     class Meta:
