@@ -10,12 +10,13 @@ def search_result(request):
     search_text = request.GET.get('q', '')
     from_date = request.GET.get('from')
     to_date = request.GET.get('to')
+    on_date = request.GET.get('on')
 
-    posts = None
+    posts = Post.objects.all()
     errors = []
 
     if search_text:
-        posts = Post.objects.filter(
+        posts = posts.filter(
             Q(published=True)
             & (Q(title__icontains=search_text)
                | Q(content__icontains=search_text)
@@ -38,7 +39,14 @@ def search_result(request):
         except ValidationError:
             errors.append("Invalid to date: " + to_date)
 
-    print(errors)
+    if on_date:
+        # we have a month as well
+        if "-" in on_date:
+            year, month = on_date.split("-")
+            posts = posts.filter(updated_at__year=year, updated_at__month=month)
+        else:
+            posts = posts.filter(updated_at__year=on_date)
+
     return render(request, 'blog/search_result.html', {
         'search_text': search_text,
         'posts': posts,

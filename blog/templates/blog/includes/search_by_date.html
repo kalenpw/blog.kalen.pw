@@ -1,12 +1,15 @@
-{% load get_item %} <div class="col-xs-12 card">
+{% load get_item %}
+{% load get_month_number %}
+
+<div class="col-xs-12 card">
     <div class="card-header">
         By date
     </div>
     <div class="card-body">
         <ul class="post-search-dates">
             {% for year in post_meta_info %}
-            <li
-                x-data="{open: {% if forloop.first %}true{% else %}false{% endif %}}">
+                <li
+                        x-data="{open: {% if forloop.first %}true{% else %}false{% endif %}}">
                 <div class="row">
                     <div class="col">
                         <button class="plus-minus-wrapper" @click="open = !open">
@@ -14,10 +17,10 @@
                             <span class="horizontal"></span>
                         </button>
 
-                        <a class="text-info" href="">
-                            {{year}}
+                        <a class="text-info" href="{% url 'blog:search_result' %}?on={{ year }}">
+                            {{ year }}
                             <span class="badge badge-dark">
-                                {{post_meta_info|get_item:year|get_item:'count'}}
+                                {{ post_meta_info|get_item:year|get_item:'count' }}
                             </span>
                         </a>
                     </div>
@@ -25,25 +28,27 @@
 
                 <ul class="months ml-4 ml-sm-0"
                     x-show="open"
-                    {% include 'core/includes/animations/slide_down_fade_out.html' %}>
+                        {% include 'core/includes/animations/slide_down_fade_out.html' %}
+                >
                     {% for month in post_meta_info|get_item:year %}
-                    {% if month != 'count' %}
-                    <li>
-                        <a class="text-info" href="">
-                            <div class="row">
-                                <div class="col">
-                                    {{month}}
-                                    <span class="badge badge-dark vertical-aligned-pills">
-                                        {{post_meta_info|get_item:year|get_item:month}}
-                                    </span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    {% endif %}
+                        {% if month != 'count' %}
+                            <li>
+                                <a class="text-info"
+                                   href="{% url 'blog:search_result' %}?on={{ year }}-{{ month|get_month_number }}">
+                                    <div class="row">
+                                        <div class="col">
+                                            {{ month }}
+                                            <span class="badge badge-dark vertical-aligned-pills">
+                                                {{ post_meta_info|get_item:year|get_item:month }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        {% endif %}
                     {% endfor %}
                 </ul>
-                {% endfor %}
+            {% endfor %}
             </li>
         </ul>
     </div>

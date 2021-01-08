@@ -9,7 +9,6 @@ register = template.Library()
 
 class HighlightRenderer(mistune.Renderer):
     def block_code(self, code, lang):
-        print(lang)
         formatted_code = ""
         if not lang:
             lang = "bash"

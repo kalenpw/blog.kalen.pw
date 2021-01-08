@@ -20,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 with open(os.path.join(BASE_DIR, 'kalenpw/secrets.json')) as secrets_file:
     secrets = json.load(secrets_file)
 
+
 def get_secret(setting, secrets=secrets):
     try:
         return secrets[setting]
     except KeyError:
         raise ImproperlyConfigured(f"Error! Missing '{setting}' setting.")
-
 
 
 # Quick-start development settings - unsuitable for production
@@ -38,7 +38,6 @@ SECRET_KEY = '5jssy#^!xk5g+36(w8aqss1w%$w1(kj9v3@36qnn1%ujn!k4jo'
 DEBUG = True
 
 ALLOWED_HOSTS = ['blog.kalen.pw', 'localhost', '192.168.0.13']
-
 
 # Application definition
 
@@ -96,7 +95,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'kalenpw.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
@@ -117,7 +115,6 @@ DATABASES = {
         'PORT': '5432'
     }
 }
-
 
 # Password validation
 # only enforce min length
@@ -142,7 +139,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
