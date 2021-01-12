@@ -20,6 +20,8 @@ pip install -r requirements.txt
 pip install gunicorn
 
 ./manage.py collectstatic
+./manage.py makemigrations
+./manage.py migrate
 
 
 # kill old gunicorn

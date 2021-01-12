@@ -23,6 +23,9 @@ from rss.views import generate_rss
 
 from core import views
 
+admin.site.site_header = "blog.kalen.pw admin"
+admin.site.site_title = "blog.kalen.pw"
+
 urlpatterns = [
     path('', include('blog.urls')),
     path('', views.index, name='index'),
@@ -62,6 +65,6 @@ urlpatterns = [
     # account
 
 
-    path('admin/', admin.site.urls),  
+    path('aadmin/', admin.site.urls),
     path('markdownx/', include('markdownx.urls'))
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
