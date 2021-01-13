@@ -23,8 +23,11 @@ from rss.views import generate_rss
 
 from core import views
 
+import core.views
+
 admin.site.site_header = "blog.kalen.pw admin"
 admin.site.site_title = "blog.kalen.pw"
+
 
 urlpatterns = [
     path('', include('blog.urls')),
@@ -66,5 +69,9 @@ urlpatterns = [
 
 
     path('aadmin/', admin.site.urls),
-    path('markdownx/', include('markdownx.urls'))
+    path('markdownx/', include('markdownx.urls')),
+
+    path('404', views.error_404)
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = views.error_404
