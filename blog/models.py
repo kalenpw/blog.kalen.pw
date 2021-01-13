@@ -1,12 +1,16 @@
 import re
 
 from django.db import models
+from django.core.validators import RegexValidator
 from django.contrib.auth.models import User
 from markdownx.models import MarkdownxField
 
 
+alphanumeric = RegexValidator(r'^[0-9a-zA-Z]*$', 'Only alphanumeric characters are allowed.')
+
+
 class Tag(models.Model):
-    name = models.CharField(max_length=40)
+    name = models.CharField(max_length=40, validators=[alphanumeric])
 
     def __str__(self):
         return self.name
