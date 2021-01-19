@@ -1,6 +1,14 @@
 {% load static markdown %}
 
-<div class="col-md-6 col-lg-4 col-xs-12 mb-4">
+{#This is used for every post besides the first on page 1#}
+
+<div
+        {% if home_page %}
+            class="col-md-4 col-lg-4 col-xs-12 mb-4"
+        {% else %}
+            class="col-md-6 col-lg-6 col-xs-12 mb-4"
+        {% endif %}
+>
     <div class="card non-featured-post kpw--card-equal-height">
         <div class="card-header bg-dark">
             <h4 class='title text-light p-0 m-0'>{{ post.title }}</h4>
@@ -8,7 +16,7 @@
         {% if post.image %}
             <img src="/media/{{ post.image }}" class="img-fluid cropped-small-post-image" alt="">
         {% else %}
-            <!-- <img src="{% static 'blog/default.jpeg' %}" class="img-fluid" alt=""> -->
+            <img src="/static/img/default.jpg" class="img-fluid" alt="">
         {% endif %}
         <div class="card-body">
             {{ post.preview_text|truncatewords:20 }}
@@ -19,7 +27,7 @@
         <div class="card-footer w-100 text-muted py-1">
             <div class="row">
                 <span class="post-date font-9 mx-auto">
-                    {{ post.updated_at }}
+                    {{ post.updated_at|date:"M j, Y" }}
                 </span>
             </div>
             <div class="row px-3">

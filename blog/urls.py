@@ -5,7 +5,7 @@ from . import views
 app_name = "blog"
 urlpatterns = [
     path('', views.home, name='home'),
-    path('page/<int:page_num>/', views.home, name='home_paginated'),
+    path('page/<int:page_num>/', views.home_paginated, name='home_paginated'),
 
     path('tag/<slug:tag_name>/', views.list_result, name='list_result'),
 
