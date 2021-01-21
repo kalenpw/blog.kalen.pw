@@ -40,6 +40,8 @@
         </div>
     </div>
 
-    {% include 'blog/includes/pagination_search.html' %}
+    {% if posts %}
+        {% include 'blog/includes/pagination_search.html' %}
+    {% endif %}
 
 {% endblock content %}
