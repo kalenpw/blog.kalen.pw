@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.db.models import Q
 from django.core.exceptions import ValidationError
+from django.core.paginator import Paginator
 
 from ..models import Post
 
@@ -11,6 +12,7 @@ def search_result(request):
     from_date = request.GET.get('from')
     to_date = request.GET.get('to')
     on_date = request.GET.get('on')
+    page = request.GET.get('page', 1)
 
     posts = Post.objects.all()
     errors = []
@@ -47,8 +49,14 @@ def search_result(request):
         else:
             posts = posts.filter(updated_at__year=on_date)
 
+    posts = Paginator(posts, 4)
+
+    get_copy = request.GET.copy()
+    parameters = get_copy.pop('page', True) and get_copy.urlencode()
+
     return render(request, 'blog/search_result.html', {
         'search_text': search_text,
-        'posts': posts,
-        'errors': errors
+        'posts': posts.get_page(page),
+        'errors': errors,
+        'parameters': parameters
     })

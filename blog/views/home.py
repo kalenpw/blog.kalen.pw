@@ -17,4 +17,9 @@ def home_paginated(request, page_num):
     # keep our URL clean so instead of /page/1/ we just have /
     if page_num == 1:
         return redirect('blog:home')
-    return render(request, 'blog/home_paginated.html', {'posts': posts.get_page(page_num), 'home_page': False})
+    context = {
+        'posts': posts.get_page(page_num),
+        'home_page': False,
+    }
+
+    return render(request, 'blog/home_paginated.html', context)
