@@ -23,6 +23,9 @@
     <div class="card-header bg-dark">
         <h2 class='title text-light p-0 m-0'>{{ post.title }}</h2>
     </div>
+    {% if post.image %}
+    <img src="/media/{{ post.image }}" class="img-fluid" alt="">
+    {% endif %}
     <div class="card-body">
         <p class="card-text">
             {{ post.content|markdown|safe }}
@@ -30,21 +33,16 @@
     </div>
 </div>
 
-<div
-    class="previous-next-wrapper mt-3 {% if not post.get_previous %}justify-content-end{% endif %}">
+<div class="previous-next-wrapper mt-3 {% if not post.get_previous %}justify-content-end{% endif %}">
     {% if post.get_previous %}
-    <a
-        href="{% url 'blog:post_detail' post.previous.id post.previous.slug %}"
-        class="previous-wrapper col-6 col-xl-2">
+    <a href="{% url 'blog:post_detail' post.previous.id post.previous.slug %}" class="previous-wrapper col-6 col-xl-2">
         <h3><i class="fas fa-arrow-left"></i></h3>
         <p class="lead">{{post.previous.title}}</p>
     </a>
     {% endif %}
 
     {% if post.get_next %}
-    <a
-        href="{% url 'blog:post_detail' post.next.id post.next.slug %}"
-        class="next-wrapper col-6 offset-xl-8 col-xl-2">
+    <a href="{% url 'blog:post_detail' post.next.id post.next.slug %}" class="next-wrapper col-6 offset-xl-8 col-xl-2">
         <h3 class="text-right"><i class="fas fa-arrow-right"></i></h3>
         <p class="text-right lead">{{post.next.title}}</p>
     </a>

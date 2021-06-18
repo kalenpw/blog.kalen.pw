@@ -163,4 +163,4 @@ MEDIA_URL = "media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # custom defined settings
-APP_NAME = 'kalen.pw'
+APP_NAME = 'blog.kalen.pw'
