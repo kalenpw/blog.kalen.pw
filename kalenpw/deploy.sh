@@ -5,7 +5,7 @@ serverDir="/web/blog.kalen.pw"
 cd ~/blog.kalen.pw
 git pull origin master
 
-rsync -r ~/blog.kalen.pw/ "$serverDir" --delete
+rsync -r --exclude 'media/' ~/blog.kalen.pw/ "$serverDir" --delete
 
 cd $serverDir
 
