@@ -24,7 +24,7 @@
                 {% include 'core/includes/navbar/search.html' %}
 
                 {% if user.is_authenticated %}
-                <li x-data="{open: false}"
+                <div x-data="{open: false}"
                     @click="open = !open"
                     @clic.away="open = false"
                     class="nav-item dropdown mr-auto w-sm-100">
@@ -51,7 +51,7 @@
                         <a class="dropdown-item"
                             href="{% url 'account:logout' %}">Log out</a>
                     </div>
-                </li>
+                </div>
 
                 {% else %}
                 <div class="form-inline mr-auto">
