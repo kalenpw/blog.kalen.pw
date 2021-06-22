@@ -26,7 +26,7 @@
                 {% if user.is_authenticated %}
                 <div x-data="{open: false}"
                     @click="open = !open"
-                    @clic.away="open = false"
+                    @click.away="open = false"
                     class="nav-item dropdown mr-auto w-sm-100">
                     <a class="nav-link dropdown-toggle"
                         href="#"
