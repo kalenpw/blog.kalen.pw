@@ -1,50 +1,9 @@
-{% load static get_setting %}
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'core/base.html' %}
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description"
-        content="Personal blog of Kalen Williams.  Topics ranging from webdev, open source software, gamedev, and anything between.">
-    <title>{% block title %}{% get_setting "APP_NAME" %}{% endblock %}</title>
-    <link rel="icon" type="image/png" href="{% static 'img/favicon.ico' %}">
-    {% block stylesheet %}
-    {% endblock stylesheet %}
-    <link rel="stylesheet" href="{% static 'css/app.css' %}">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/0ad5d99fd0.js" crossorigin="anonymous"></script>
-
-    {% block open_graph %}
-    {% endblock open_graph %}
-</head>
-
-<body>
-    <div class="content-wrapper">
-        {% block body %}
-
-        {% include 'core/navbar.html' %}
-
-        <div class="container">
-            {% block content %}
-            {% endblock %}
-        </div>
-        {% endblock body %}
-
-    </div>
-
-    {% include 'core/footer.html' %}
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
-    </script>
-
-    <script src="{% static 'js/app.js' %}"></script>
-</body>
-
-</html>
+{% block breadcrumb %}
+<style>
+.breadcrumb {
+    display: none;
+}
+</style>
+{% endblock breadcrumb %}
