@@ -9,11 +9,21 @@ POSTS_ON_PAGINATED = 6
 
 def home(request):
     posts = Paginator(Post.objects.filter(published=True).order_by('-updated_at'), 4)
+
+    if request.user.is_superuser:
+        if request.GET.get('preview', 'false') == 'true':
+            posts = Paginator(Post.objects.filter().order_by('-updated_at'), 4)
+
     return render(request, 'blog/home.html', {'posts': posts.get_page(1), 'home_page': True})
 
 
 def home_paginated(request, page_num):
     posts = Paginator(Post.objects.filter(published=True).order_by('-updated_at'), 4)
+
+    if request.user.is_superuser:
+        if request.GET.get('preview', 'false') == 'true':
+            posts = Paginator(Post.objects.filter().order_by('-updated_at'), 4)
+
     # keep our URL clean so instead of /page/1/ we just have /
     if page_num == 1:
         return redirect('blog:home')
