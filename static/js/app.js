@@ -1,4 +1,4 @@
-// Generated 2021-01-11 20:45:25
+// Generated 2021-06-23 17:19:25
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
         typeof define === 'function' && define.amd ? define(factory) :
@@ -1776,6 +1776,11 @@ function toggleCodeTheme() {
         codeBlocks[i].querySelector('.toggle-icon').classList.toggle('fa-moon');
     }
 }
+window.addEventListener('load', () => {
+    document.querySelectorAll('.card-text table').forEach((element) => {
+        element.classList.add('table');
+    });
+});
 window.onload = () => {
     const searchText = document.getElementById("search-text");
     const searchButton = document.getElementById("search-button");
