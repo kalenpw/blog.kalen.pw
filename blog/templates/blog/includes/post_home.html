@@ -5,8 +5,8 @@
 <div {% if home_page %} class="col-md-4 col-lg-4 col-xs-12 mb-4" {% else %} class="col-md-6 col-lg-6 col-xs-12 mb-4"
     {% endif %}>
     <div class="card non-featured-post kpw--card-equal-height">
-        <a class="font-weight-bold text-info" href="{% url 'blog:post_detail' post.id post.slug %}">
-            <div class="card-header bg-dark">
+        <a class="font-weight-bold text-info text-center" href="{% url 'blog:post_detail' post.id post.slug %}">
+            <div class="card-header bg-dark text-left">
                 <h4 class='title text-light p-0 m-0'>{{ post.title }}</h4>
             </div>
             {% if post.image %}
