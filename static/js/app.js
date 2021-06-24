@@ -1,4 +1,4 @@
-// Generated 2021-06-23 17:19:25
+// Generated 2021-06-23 19:31:08
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
         typeof define === 'function' && define.amd ? define(factory) :
@@ -1778,7 +1778,7 @@ function toggleCodeTheme() {
 }
 window.addEventListener('load', () => {
     document.querySelectorAll('.card-text table').forEach((element) => {
-        element.classList.add('table');
+        element.classList.add('table', 'table-responsive');
     });
 });
 window.onload = () => {
