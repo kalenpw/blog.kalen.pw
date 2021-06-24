@@ -5,6 +5,9 @@ serverDir="/web/blog.kalen.pw"
 cd ~/blog.kalen.pw
 git pull origin master
 
+# ensure all js is in one file
+./kalenpw/combineJs.sh django
+
 rsync -r --exclude 'media/' ~/blog.kalen.pw/ "$serverDir" --delete
 
 cd $serverDir
