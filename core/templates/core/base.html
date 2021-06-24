@@ -9,6 +9,7 @@
         content="Personal blog of Kalen Williams.  Topics ranging from webdev, open source software, gamedev, and anything between.">
     <title>{% block title %}{% get_setting "APP_NAME" %}{% endblock %}</title>
     <link rel="icon" type="image/png" href="{% static 'img/favicon.ico' %}">
+    <link rel="apple-touch-icon" href="{% static 'img/icon.png' %}">
     {% block stylesheet %}
     {% endblock stylesheet %}
     <link rel="stylesheet" href="{% static 'css/app.css' %}">
