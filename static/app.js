@@ -1,4 +1,4 @@
-// Generated 2021-06-23 19:31:08
+// Generated 2022-05-10 19:50:42
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
         typeof define === 'function' && define.amd ? define(factory) :
@@ -1765,7 +1765,6 @@
 
 })));
 
-
 function toggleCodeTheme() {
     const codeBlocks = document.querySelectorAll(".code-block");
 
@@ -1776,11 +1775,38 @@ function toggleCodeTheme() {
         codeBlocks[i].querySelector('.toggle-icon').classList.toggle('fa-moon');
     }
 }
-window.addEventListener('load', () => {
-    document.querySelectorAll('.card-text table').forEach((element) => {
-        element.classList.add('table', 'table-responsive');
-    });
-});
+function hoverRightOn() {
+    let fillArrow = document.getElementById('next-fill');
+    let nofillArrow = document.getElementById('next-nofill');
+
+    fillArrow.classList.toggle('d-none');
+    nofillArrow.classList.toggle('d-none');
+}
+
+function hoverRightOff() {
+    let fillArrow = document.getElementById('next-fill');
+    let nofillArrow = document.getElementById('next-nofill');
+
+    fillArrow.classList.toggle('d-none');
+    nofillArrow.classList.toggle('d-none');
+}
+
+
+function hoverLeftOn() {
+    let fillArrow = document.getElementById('prev-fill');
+    let nofillArrow = document.getElementById('prev-nofill');
+
+    fillArrow.classList.toggle('d-none');
+    nofillArrow.classList.toggle('d-none');
+}
+
+function hoverLeftOff() {
+    let fillArrow = document.getElementById('prev-fill');
+    let nofillArrow = document.getElementById('prev-nofill');
+
+    fillArrow.classList.toggle('d-none');
+    nofillArrow.classList.toggle('d-none');
+}
 window.onload = () => {
     const searchText = document.getElementById("search-text");
     const searchButton = document.getElementById("search-button");
@@ -1795,3 +1821,8 @@ window.onload = () => {
         }
     })
 }
+window.addEventListener('load', () => {
+    document.querySelectorAll('.card-text table').forEach((element) => {
+        element.classList.add('table', 'table-responsive-lg');
+    });
+});
