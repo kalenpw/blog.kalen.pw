@@ -11,3 +11,5 @@ venv/
 kalenpw/secrets.json
 kalenpw/secrets_prod.json
 media/
+
+.DS_Store

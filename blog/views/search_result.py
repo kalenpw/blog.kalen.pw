@@ -16,6 +16,7 @@ def search_result(request):
 
     posts = Post.objects.all()
     errors = []
+    date_search_text = ""
 
     if search_text:
         posts = posts.filter(
@@ -30,6 +31,7 @@ def search_result(request):
         from_date += "T23:59" if "T" not in from_date else ''
         try:
             posts = posts.filter(updated_at__gt=from_date)
+            date_search_text += f"from: {from_date} "
         except ValidationError:
             errors.append("Invalid from date: " + from_date)
 
@@ -38,6 +40,7 @@ def search_result(request):
         to_date += "T23:59" if "T" not in to_date else ''
         try:
             posts = posts.filter(updated_at__lt=to_date)
+            date_search_text += f"to: {to_date} "
         except ValidationError:
             errors.append("Invalid to date: " + to_date)
 
@@ -48,14 +51,25 @@ def search_result(request):
             posts = posts.filter(updated_at__year=year, updated_at__month=month)
         else:
             posts = posts.filter(updated_at__year=on_date)
+        date_search_text += f"date: {on_date}"
 
     posts = Paginator(posts, 4)
 
     get_copy = request.GET.copy()
     parameters = get_copy.pop('page', True) and get_copy.urlencode()
 
+    if date_search_text:
+        date_search_text = f'[{date_search_text}]'
+    else:
+        date_search_text = ""
+
+    if search_text:
+        search_text = f'"{search_text}"'
+    else:
+        search_text = "[ALL]"
+
     return render(request, 'blog/search_result.html', {
-        'search_text': search_text,
+        'search_text': f"{search_text} {date_search_text}",
         'posts': posts.get_page(page),
         'errors': errors,
         'parameters': parameters
